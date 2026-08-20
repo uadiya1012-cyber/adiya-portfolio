@@ -1,0 +1,100 @@
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  padding: 8px 0;
+  /* give a little vertical breathing room */
+}
+
+.nav {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  /* allow items to wrap when space is tight */
+}
+
+/* menu */
+.nav__menu {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav__link {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--light);
+  transition: color 0.3s ease;
+}
+
+.nav__link:hover {
+  color: var(--primary);
+}
+
+/* logo */
+.nav__logo {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--light);
+  gap: 12px;
+}
+
+.nav__logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0;
+  /* center properly with align-items */
+}
+
+/* Responsive tweaks to avoid cramped header */
+@media (max-width: 1024px) {
+  .nav {
+    height: 72px;
+  }
+
+  .nav__menu {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    justify-content: center;
+    padding: 0 12px;
+  }
+
+  .nav__menu {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    order: 3;
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .nav__logo {
+    order: 1;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav__menu {
+    gap: 8px;
+  }
+
+  .nav__link {
+    font-size: 14px;
+  }
+}

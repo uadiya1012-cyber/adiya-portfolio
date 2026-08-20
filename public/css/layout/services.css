@@ -1,0 +1,18 @@
+/* my services */
+
+.services {
+  position: relative;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.services__container {
+  position: relative;
+  z-index: 2;
+}
+
+.services__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}

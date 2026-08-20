@@ -1,0 +1,186 @@
+/* CV Modal Styles */
+.cv-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.cv-modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.cv-modal {
+  background: rgba(15, 15, 20, 0.85); /* Darker glass for contrast */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 800px;
+  max-height: 85vh;
+  overflow-y: auto; /* Scrollable if content too long */
+  transform: translateY(30px) scale(0.95);
+  transition: transform 0.3s ease;
+  position: relative;
+  
+  /* Scrollbar styles for the modal */
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) rgba(255, 255, 255, 0.05);
+}
+
+.cv-modal-overlay.active .cv-modal {
+  transform: translateY(0) scale(1);
+}
+
+.cv-modal::-webkit-scrollbar {
+  width: 6px;
+}
+.cv-modal::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+.cv-modal::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+/* Modal Content Grid */
+.cv-header {
+  padding: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: sticky;
+  top: 0;
+  background: rgba(15, 15, 20, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+.cv-header-info h2 {
+  font-size: 2rem;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.cv-header-info p {
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.cv-close-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.cv-close-btn:hover {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.cv-body {
+  padding: 30px;
+}
+
+/* Sections */
+.cv-section {
+  margin-bottom: 30px;
+}
+
+.cv-section:last-child {
+  margin-bottom: 0;
+}
+
+.cv-section-title {
+  font-size: 1.2rem;
+  color: var(--white);
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cv-section-title span {
+  color: var(--primary-color);
+}
+
+.cv-text {
+  color: var(--gray-300);
+  line-height: 1.6;
+}
+
+/* Skills Layout in CV */
+.cv-skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cv-skill-tag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--gray-300);
+}
+
+/* Experience/Projects List */
+.cv-timeline-item {
+  position: relative;
+  padding-left: 20px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+.cv-timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.cv-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary-color);
+}
+
+.cv-timeline-title {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.cv-timeline-subtitle {
+  color: var(--gray-300);
+  font-size: 0.9rem;
+  margin: 5px 0 10px 0;
+}

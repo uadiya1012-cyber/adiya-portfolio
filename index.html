@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <!-- Three.js Canvas Background -->
+    <canvas id="bg"></canvas>
+
+    <header class="header">
+      <nav class="nav container">
+        <!-- Logo -->
+        <a href="#" class="nav__logo">
+          <img
+            src="/assets/images/logo.svg"
+            alt="logo"
+            onerror="
+              this.onerror = null;
+              this.src = '';
+              this.alt = 'UADIYA';
+            "
+          />
+          UADIYA
+        </a>
+
+        <!-- Menu -->
+        <ul class="nav__menu">
+          <li><a href="#home" class="nav__link">Home</a></li>
+          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#services" class="nav__link">Services</a></li>
+          <li><a href="#projects" class="nav__link">Portfolio</a></li>
+          <li><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+
+        <!-- CTA -->
+        <a href="#contact" class="btn btn--primary"> Hire Me </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero__container container">
+          <!-- Left content -->
+          <div class="hero__content">
+            <span class="hero__badge">Hello!</span>
+
+            <h1 class="hero__title">
+              I’m <span>Adiya</span>, <br />
+              Fullstack Developer
+            </h1>
+
+            <p class="hero__text">
+              I am a passionate Fullstack Developer focused on creating
+              intuitive, fast, and visually stunning web experiences. Let's
+              build something amazing together.
+            </p>
+
+            <div class="hero__actions">
+              <a href="#projects" class="btn btn--primary">Portfolio</a>
+              <a href="#contact" class="btn btn--outline">Hire Me</a>
+            </div>
+          </div>
+
+          <!-- Right image -->
+          <div class="hero__image-wrapper">
+            <img
+              src="/assets/images/profile.png"
+              alt="Adiya portrait"
+              onerror="
+                this.onerror = null;
+                this.src = '';
+                this.alt = 'Profile Picture';
+              "
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- My services -->
+      <section class="services" id="services">
+        <div class="services__container container">
+          <!-- Section header -->
+          <div class="section-header section-header--light">
+            <h2 class="section-title">My <span>Services</span></h2>
+            <p class="section-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+              lacus nunc, posuere in justo vulputate.
+            </p>
+          </div>
+
+          <!-- Services list -->
+          <div class="services__list">
+            <article class="service-card glass-panel">
+              <h3 class="service-card__title">Frontend Development (React)</h3>
+              <p class="service-card__desc">
+                Building responsive, interactive, and modern user interfaces
+                using React.js and modern web ecosystem.
+              </p>
+              <button class="service-card__btn">↗</button>
+            </article>
+
+            <article class="service-card glass-panel">
+              <h3 class="service-card__title">
+                Backend Development (Django / Python)
+              </h3>
+              <p class="service-card__desc">
+                Creating robust, scalable, and secure server-side applications
+                and APIs using Django.
+              </p>
+              <button class="service-card__btn">↗</button>
+            </article>
+
+            <article class="service-card glass-panel">
+              <h3 class="service-card__title">Full Stack Web Development</h3>
+              <p class="service-card__desc">
+                End-to-end development integrating powerful backends with
+                seamless frontend experiences.
+              </p>
+              <button class="service-card__btn">↗</button>
+            </article>
+
+            <article class="service-card glass-panel">
+              <h3 class="service-card__title">Web Application Development</h3>
+              <p class="service-card__desc">
+                Delivering custom, high-performance web applications tailored to
+                specific business needs.
+              </p>
+              <button class="service-card__btn">↗</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="about" id="about">
+        <div class="about__container container">
+          <div class="about__grid">
+            <!-- Image/Visual Column -->
+            <div class="about__visual">
+              <div class="about__image-wrapper">
+                <img
+                  src="/assets/images/profile.png"
+                  alt="Adiya Workspace"
+                  class="about__img"
+                  onerror="
+                    this.onerror = null;
+                    this.src = '';
+                  "
+                />
+              </div>
+            </div>
+
+            <!-- Content Column -->
+            <div class="about__content">
+              <h2 class="section-title">About <span>Me</span></h2>
+              <p class="about__text">
+                I am a Fullstack Developer who strives to build seamless,
+                high-performance web applications. I love turning complex
+                problems into simple, beautiful, and intuitive designs.
+              </p>
+
+              <div class="about__skills">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">UI/UX Design</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">Git & GitHub</span>
+              </div>
+
+              <a href="#cv-modal" id="open-cv-btn" class="btn btn--primary"
+                >View Resume</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio/Projects Section -->
+      <section class="projects" id="projects">
+        <div class="projects__container container">
+          <!-- Section header -->
+          <div class="section-header">
+            <h2 class="section-title">Featured <span>Work</span></h2>
+            <p class="section-text">
+              Some of the latest projects I've built using modern web
+              technologies.
+            </p>
+          </div>
+
+          <div class="projects__grid">
+            <!-- Project 1 (DigitalOcean) -->
+            <article class="portfolio-card">
+              <div class="portfolio-card__img">
+                <div class="portfolio-card__img-placeholder">
+                  adiya.ilearn.mn
+                </div>
+              </div>
+              <div class="portfolio-card__content">
+                <h3 class="portfolio-card__title">Adiya iLearn Platform</h3>
+                <p class="portfolio-card__desc">
+                  A comprehensive expense tracker management system hosted on
+                  DigitalOcean, delivering high-performance financial insights.
+                  Three js background, figma-inspired design, real-time updates,
+                  and seamless performance, powered by DigitalOcean.
+                </p>
+                <div class="portfolio-card__tags">
+                  <span class="skill-tag">DigitalOcean</span>
+                  <span class="skill-tag">Fullstack</span>
+                </div>
+                <div class="portfolio-card__links">
+                  <a
+                    href="https://adiya.ilearn.mn/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn--primary btn--small"
+                    >Visit Site</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2 (Firebase) -->
+            <article class="portfolio-card">
+              <div class="portfolio-card__img">
+                <div class="portfolio-card__img-placeholder">
+                  Firebase Proj 1
+                </div>
+              </div>
+              <div class="portfolio-card__content">
+                <h3 class="portfolio-card__title">Firebase Project 1</h3>
+                <p class="portfolio-card__desc">
+                  A high-performance web application hosted on Firebase.
+                  "Responsive Navigation & Content Filtering System" Pokemon
+                  project with figma-inspired design, real-time updates, and
+                  seamless performance, powered by Firebase.
+                </p>
+                <div class="portfolio-card__tags">
+                  <span class="skill-tag">Firebase</span>
+                  <span class="skill-tag">Web App</span>
+                </div>
+                <div class="portfolio-card__links">
+                  <a
+                    href="https://athena-fullstack-adiya-e7f08.web.app/"
+                    class="btn btn--primary btn--small"
+                    >Visit Site</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3 (Firebase) -->
+            <article class="portfolio-card">
+              <div class="portfolio-card__img">
+                <div class="portfolio-card__img-placeholder">
+                  Firebase Proj 2
+                </div>
+              </div>
+              <div class="portfolio-card__content">
+                <h3 class="portfolio-card__title">Firebase Project 2</h3>
+                <p class="portfolio-card__desc">
+                  A high-performance web application hosted on Firebase. "DJ
+                  App: A sleek music player with figma-inspired design,
+                  real-time updates and seamless performance, powered by
+                  Firebase."
+                </p>
+                <div class="portfolio-card__tags">
+                  <span class="skill-tag">Firebase</span>
+                  <span class="skill-tag">Web App</span>
+                </div>
+                <div class="portfolio-card__links">
+                  <a
+                    href="https://athena-fullstack-adiya-b9d25.web.app/"
+                    class="btn btn--primary btn--small"
+                    >Visit Site</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 4 (Firebase) -->
+            <article class="portfolio-card">
+              <div class="portfolio-card__img">
+                <div class="portfolio-card__img-placeholder">
+                  Firebase Proj 3
+                </div>
+              </div>
+              <div class="portfolio-card__content">
+                <h3 class="portfolio-card__title">Firebase Project 3</h3>
+                <p class="portfolio-card__desc">
+                  A high-performance web application hosted on Firebase.
+                  "Calculator app with a figma-inspired design and intuitive
+                  interface. Powered by Firebase for seamless performance and
+                  real-time updates."
+                </p>
+                <div class="portfolio-card__tags">
+                  <span class="skill-tag">Firebase</span>
+                  <span class="skill-tag">Web App</span>
+                </div>
+                <div class="portfolio-card__links">
+                  <a
+                    href="https://athena-fullstack-adiya-f500c.web.app/"
+                    class="btn btn--primary btn--small"
+                    >Visit Site</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 5 (Firebase) -->
+            <article class="portfolio-card">
+              <div class="portfolio-card__img">
+                <div class="portfolio-card__img-placeholder">
+                  Firebase Proj 4
+                </div>
+              </div>
+              <div class="portfolio-card__content">
+                <h3 class="portfolio-card__title">Firebase Project 4</h3>
+                <p class="portfolio-card__desc">
+                  A high-performance web application hosted on Firebase. Cafe
+                  website with a figma-inspired design, real-time updates, and
+                  seamless performance, powered by Firebase.
+                </p>
+                <div class="portfolio-card__tags">
+                  <span class="skill-tag">Firebase</span>
+                  <span class="skill-tag">Web App</span>
+                </div>
+                <div class="portfolio-card__links">
+                  <a
+                    href="https://athena-fullstack-adiya-98796.web.app/"
+                    class="btn btn--primary btn--small"
+                    >Visit Site</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 6 (Firebase) -->
+            <article class="portfolio-card">
+              <div class="portfolio-card__img">
+                <div class="portfolio-card__img-placeholder">
+                  Firebase Proj 5
+                </div>
+              </div>
+              <div class="portfolio-card__content">
+                <h3 class="portfolio-card__title">Firebase Project 5</h3>
+                <p class="portfolio-card__desc">
+                  A high-performance web application hosted on Firebase. Profile
+                  card with a figma-inspired design, real-time updates, and
+                  seamless performance, powered by Firebase.
+                </p>
+                <div class="portfolio-card__tags">
+                  <span class="skill-tag">Firebase</span>
+                  <span class="skill-tag">Web App</span>
+                </div>
+                <div class="portfolio-card__links">
+                  <a
+                    href="https://athena-fullstack-adiya-f4f8d.web.app/"
+                    class="btn btn--primary btn--small"
+                    >Visit Site</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 7 (Firebase) -->
+            <article class="portfolio-card">
+              <div class="portfolio-card__img">
+                <div class="portfolio-card__img-placeholder">
+                  Firebase Proj 6
+                </div>
+              </div>
+              <div class="portfolio-card__content">
+                <h3 class="portfolio-card__title">Firebase Project 6</h3>
+                <p class="portfolio-card__desc">
+                  A high-performance web application hosted on Firebase. 404
+                  error page with a figma-inspired design, real-time updates,
+                  and seamless performance, powered by Firebase.
+                </p>
+                <div class="portfolio-card__tags">
+                  <span class="skill-tag">Firebase</span>
+                  <span class="skill-tag">Web App</span>
+                </div>
+                <div class="portfolio-card__links">
+                  <a
+                    href="https://athena-fullstack-adiya-ac465.web.app/"
+                    class="btn btn--primary btn--small"
+                    >Visit Site</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 8 (Firebase) -->
+            <article class="portfolio-card">
+              <div class="portfolio-card__img">
+                <div class="portfolio-card__img-placeholder">
+                  Firebase Proj 7
+                </div>
+              </div>
+              <div class="portfolio-card__content">
+                <h3 class="portfolio-card__title">Firebase Project 7</h3>
+                <p class="portfolio-card__desc">
+                  A high-performance web application hosted on Firebase. Example
+                  portfolio project with a figma-inspired design, powered by
+                  Firebase.
+                </p>
+                <div class="portfolio-card__tags">
+                  <span class="skill-tag">Firebase</span>
+                  <span class="skill-tag">Web App</span>
+                </div>
+                <div class="portfolio-card__links">
+                  <a
+                    href="https://athena-fullstack-adiya-a4f55.web.app/"
+                    class="btn btn--primary btn--small"
+                    >Visit Site</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 9 (Firebase) -->
+            <!-- <article class="portfolio-card">
+              <div class="portfolio-card__img">
+                <div class="portfolio-card__img-placeholder">
+                  Firebase Proj 8
+                </div>
+              </div>
+              <div class="portfolio-card__content">
+                <h3 class="portfolio-card__title">Firebase Project 8</h3>
+                <p class="portfolio-card__desc">
+                  A high-performance web application hosted on Firebase. Replace
+                  with your actual project details.
+                </p>
+                <div class="portfolio-card__tags">
+                  <span class="skill-tag">Firebase</span>
+                  <span class="skill-tag">Web App</span>
+                </div>
+                <div class="portfolio-card__links">
+                  <a href="#" class="btn btn--primary btn--small">Live Demo</a>
+                </div>
+              </div>
+            </article> -->
+
+            <!-- Project 10 (Firebase) -->
+            <!-- <article class="portfolio-card">
+              <div class="portfolio-card__img">
+                <div class="portfolio-card__img-placeholder">
+                  Firebase Proj 9
+                </div>
+              </div>
+              <div class="portfolio-card__content">
+                <h3 class="portfolio-card__title">Firebase Project 9</h3>
+                <p class="portfolio-card__desc">
+                  A high-performance web application hosted on Firebase. Replace
+                  with your actual project details.
+                </p>
+                <div class="portfolio-card__tags">
+                  <span class="skill-tag">Firebase</span>
+                  <span class="skill-tag">Web App</span>
+                </div>
+                <div class="portfolio-card__links">
+                  <a href="#" class="btn btn--primary btn--small">Live Demo</a>
+                </div>
+              </div>
+            </article> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact" id="contact">
+        <div class="contact__container container">
+          <div class="contact__grid">
+            <!-- Contact Info -->
+            <div class="contact__info">
+              <h2 class="section-title">Let's Work <span>Together</span></h2>
+              <p class="contact__text">
+                I'm always open to discussing product design work, new projects,
+                or partnership opportunities. Let's make something amazing.
+              </p>
+              <div class="contact__details">
+                <div class="contact__item">
+                  <strong>Email</strong>
+                  <p>uadiya1012@gmail.com</p>
+                </div>
+                <div class="contact__item">
+                  <strong>Location</strong>
+                  <p>Ulaanbaatar, Mongolia</p>
+                  <!-- Live Weather Widget injected via JS -->
+                  <div id="weather-widget" class="weather-widget"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Form (Glassmorphism) -->
+            <div class="contact__form-wrapper glass-panel">
+              <form
+                action="https://api.web3forms.com/submit"
+                method="POST"
+                class="contact__form"
+              >
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="706d4697-5b74-4066-a5f7-c1773b6e15b0"
+                />
+
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="Email Address"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <textarea
+                    name="message"
+                    class="form-control"
+                    placeholder="Your Message"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CV Modal -->
+      <div id="cv-modal-overlay" class="cv-modal-overlay" aria-hidden="true">
+        <div
+          class="cv-modal glass-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="cv-title"
+        >
+          <!-- CV Header -->
+          <div class="cv-header">
+            <div class="cv-header-info">
+              <h2 id="cv-title">Adiya</h2>
+              <p>Fullstack Developer</p>
+            </div>
+            <button
+              id="close-cv-btn"
+              class="cv-close-btn"
+              aria-label="Close CV"
+            >
+              &times;
+            </button>
+          </div>
+
+          <!-- CV Body -->
+          <div class="cv-body">
+            <!-- Summary -->
+            <div class="cv-section">
+              <h3 class="cv-section-title"><span>#</span> Summary</h3>
+              <p class="cv-text">
+                Passionate Fullstack Developer based in Ulaanbaatar, Mongolia.
+                Dedicated to building seamless, high-performance web
+                applications. I love turning complex problems into simple,
+                beautiful, and intuitive designs while maintaining clean code
+                architecture.
+              </p>
+            </div>
+
+            <!-- Skills -->
+            <div class="cv-section">
+              <h3 class="cv-section-title"><span>#</span> Core Skills</h3>
+              <div class="cv-skills-grid">
+                <span class="cv-skill-tag">JavaScript / ES6+</span>
+                <span class="cv-skill-tag">React.js</span>
+                <span class="cv-skill-tag">Node.js</span>
+                <span class="cv-skill-tag">Python 3</span>
+                <span class="cv-skill-tag">Django</span>
+                <span class="cv-skill-tag">Firebase</span>
+                <span class="cv-skill-tag">UI/UX Design</span>
+                <span class="cv-skill-tag">Git & GitHub</span>
+                <span class="cv-skill-tag">DigitalOcean</span>
+                <span class="cv-skill-tag">Three.js</span>
+              </div>
+            </div>
+
+            <!-- Experience & Projects -->
+            <div class="cv-section">
+              <h3 class="cv-section-title">
+                <span>#</span> Featured Work & Experience
+              </h3>
+
+              <div class="cv-timeline">
+                <div class="cv-timeline-item">
+                  <div class="cv-timeline-title">
+                    Creator & Developer - Adiya iLearn Platform
+                  </div>
+                  <div class="cv-timeline-subtitle">
+                    Hosted on DigitalOcean | Fullstack
+                  </div>
+                  <p class="cv-text">
+                    Designed and deployed a comprehensive platform with Three.js
+                    interactive 3D backgrounds, real-time expense tracking, and
+                    a figma-inspired modern UI.
+                  </p>
+                </div>
+
+                <div class="cv-timeline-item">
+                  <div class="cv-timeline-title">
+                    Frontend Developer - Multiple Firebase Web Apps
+                  </div>
+                  <div class="cv-timeline-subtitle">
+                    Firebase Hosting | React ecosystem
+                  </div>
+                  <p class="cv-text">
+                    Engineered multiple high-performance web applications
+                    including a DJ music player, calculator, responsive Pokémon
+                    filtering system, and cafe ordering UI, all emphasizing
+                    sleek user experiences and smooth state management.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Education -->
+            <div class="cv-section">
+              <h3 class="cv-section-title"><span>#</span> Education</h3>
+              <div class="cv-timeline">
+                <div class="cv-timeline-item">
+                  <div class="cv-timeline-title">Athena Fall 2025 Program</div>
+                  <div class="cv-timeline-subtitle">
+                    Software Engineering & Fullstack Development
+                  </div>
+                  <p class="cv-text">
+                    Intensive training covering frontend frameworks, backend
+                    architecture, database design, and cloud deployments.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.cv-body -->
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container container">
+        <div class="footer__content">
+          <div class="footer__logo">UADIYA</div>
+          <p class="footer__copyright">© 2026 Adiya. All rights reserved.</p>
+          <div class="footer__socials">
+            <a
+              href="https://www.linkedin.com/in/adiyakhuu-uuriintsolmon-b50592232/"
+              aria-label="LinkedIn"
+              >IN</a
+            >
+            <a href="https://github.com/uadiya1012-cyber" aria-label="GitHub"
+              >GH</a
+            >
+            <a href="mailto:uadiya1012@gmail.com" aria-label="Gmail">Gmail</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/js/3d-tilt.js"></script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
