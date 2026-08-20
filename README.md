@@ -31,7 +31,7 @@ dist/               Build-ийн үр дүн (git-д ордоггүй, Firebase 
 
 ```bash
 npm ci        # хамаарал суулгах (npm install БИШ — lockfile хамгаалахын тулд)
-npm run dev   # http://localhost:5173
+npm run dev   # http://localhost:5176 (5173-5175 нь бусад төслүүдэд эзэмшигдсэн)
 ```
 
 ## Deploy
