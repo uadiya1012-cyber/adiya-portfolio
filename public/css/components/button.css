@@ -7,6 +7,7 @@
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
+    white-space: nowrap;
     transition: all 0.3s ease;
 }
 

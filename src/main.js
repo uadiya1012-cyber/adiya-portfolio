@@ -1,5 +1,4 @@
 import "./style.css";
-import * as THREE from "three";
 import { initWeatherWidget } from "./weather.js";
 import { initCVModal } from "./cv.js";
 
@@ -7,145 +6,226 @@ import { initCVModal } from "./cv.js";
 initWeatherWidget();
 initCVModal();
 
-// 1. SCENE SETUP
-const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x050505); // Very sleek dark background
+const reduceMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
 
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000,
+/* ── Spotlight: cells glow where the cursor is ─────────────── */
+document.querySelectorAll(".bento-cell").forEach((cell) => {
+  cell.addEventListener("pointermove", (e) => {
+    const rect = cell.getBoundingClientRect();
+    cell.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    cell.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  });
+});
+
+/* ── Count-up stats when they scroll into view ─────────────── */
+const counters = document.querySelectorAll("[data-count]");
+
+if (!reduceMotion && "IntersectionObserver" in window && counters.length) {
+  const animateCount = (el) => {
+    const end = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || "";
+    const duration = 1400;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(end * eased).toLocaleString() + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+  };
+
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        animateCount(entry.target);
+        counterObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  counters.forEach((el) => counterObserver.observe(el));
+}
+
+/* ── Scroll-reveal: bento cells rise in softly ─────────────── */
+const revealTargets = document.querySelectorAll(
+  ".reveal-block, .hero-bento > *, .skills-bento > *, .about-bento > *, .work-bento > *, .contact-bento > *"
 );
 
-const renderer = new THREE.WebGLRenderer({
-  canvas: document.querySelector("#bg"),
-  antialias: true,
-});
+if (!reduceMotion && "IntersectionObserver" in window) {
+  // Stagger cells inside each grid
+  document
+    .querySelectorAll(".hero-bento, .skills-bento, .about-bento, .work-bento, .contact-bento")
+    .forEach((grid) => {
+      Array.from(grid.children).forEach((child, i) => {
+        child.style.animationDelay = `${Math.min(i * 60, 360)}ms`;
+      });
+    });
 
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
-camera.position.setX(-3);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        entry.target.addEventListener(
+          "animationend",
+          () => entry.target.classList.remove("reveal", "is-visible"),
+          { once: true }
+        );
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.1 }
+  );
 
-// 2. RESIZE EVENT LISTENER (Responsive Canvas)
-window.addEventListener("resize", () => {
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-});
-
-// 3. TECH-THEMED 3D OBJECTS
-// Object A: Abstract Wireframe TorusKnot (Represents complex Logic/Code)
-const geometryKnot = new THREE.TorusKnotGeometry(10, 2.5, 120, 16);
-const materialKnot = new THREE.MeshStandardMaterial({
-  color: 0x4f46e5, // Tech Indigo Blue
-  wireframe: true,
-  emissive: 0x1a1060,
-  emissiveIntensity: 0.5,
-});
-const torusKnot = new THREE.Mesh(geometryKnot, materialKnot);
-scene.add(torusKnot);
-
-torusKnot.position.z = -15;
-torusKnot.position.x = 15;
-
-// Object B: Floating Glass-morphism Cube (Represents UI/UX elements)
-const cubeGeo = new THREE.BoxGeometry(5, 5, 5);
-const cubeMat = new THREE.MeshPhysicalMaterial({
-  color: 0xec4899, // Vibrant Pink
-  metalness: 0.1,
-  roughness: 0.1,
-  transparent: true,
-  opacity: 0.8,
-  transmission: 0.9, // glass-like effect
-  clearcoat: 1.0,
-});
-const cube = new THREE.Mesh(cubeGeo, cubeMat);
-scene.add(cube);
-
-cube.position.z = -5;
-cube.position.x = -10;
-cube.position.y = 5;
-
-// Object C: Cyber Particles (Represents Data Streams)
-const particlesGeometry = new THREE.BufferGeometry();
-const particlesCount = 500;
-const posArray = new Float32Array(particlesCount * 3);
-
-for (let i = 0; i < particlesCount * 3; i++) {
-  // Spread particles around the scene
-  posArray[i] = (Math.random() - 0.5) * 100;
+  revealTargets.forEach((el) => {
+    el.classList.add("reveal");
+    observer.observe(el);
+  });
 }
 
-particlesGeometry.setAttribute(
-  "position",
-  new THREE.BufferAttribute(posArray, 3),
-);
-const particlesMaterial = new THREE.PointsMaterial({
-  size: 0.15,
-  color: 0x00ffcc, // Cyan data points
-  transparent: true,
-  opacity: 0.8,
-});
-const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-scene.add(particlesMesh);
+/* ── Floating avatar — glides between lanes, parks in its seat ── */
+const avatar = document.querySelector(".floating-avatar");
 
-// 4. LIGHTING
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-scene.add(ambientLight);
+if (avatar && !reduceMotion && window.matchMedia("(min-width: 900px)").matches) {
+  // `park` targets a real element's center; otherwise xf is a viewport fraction
+  const stops = [
+    { sel: "#home", xf: 0.79, yBias: 0.42 }, // hero — beside the intro card
+    { sel: "#services", xf: 0.16, yBias: 0.4 }, // header pushed right → left lane free
+    { sel: "#avatar-seat", park: true }, // its reserved seat in About 🪑
+    { sel: "#projects", xf: 0.85, yBias: 0.38 }, // header on left → right lane free
+    { sel: "#contact", xf: 0.5, yBias: 0.3 }, // finale behind the CTA glass
+  ]
+    .map((s) => ({ ...s, el: document.querySelector(s.sel) }))
+    .filter((s) => s.el);
 
-const pointLight = new THREE.PointLight(0xffffff, 2);
-pointLight.position.set(10, 10, 10);
-scene.add(pointLight);
+  const easeInOut = (t) =>
+    t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
-const blueLight = new THREE.PointLight(0x0055ff, 3);
-blueLight.position.set(-10, -10, -10);
-scene.add(blueLight);
+  let anchors = []; // doc-space Y for each stop
 
-// 5. SCROLL ANIMATION EVENT
-function moveCamera() {
-  // Get how far the user has scrolled
-  const t = document.body.getBoundingClientRect().top;
+  const measure = () => {
+    const sy = window.scrollY;
+    anchors = stops.map((s) => {
+      const top = s.el.getBoundingClientRect().top + sy;
+      return top + window.innerHeight * (s.yBias ?? 0.4);
+    });
+  };
 
-  // Rotate objects based on scroll
-  cube.rotation.y += 0.05;
-  cube.rotation.x += 0.05;
+  let targetX = 0;
+  let targetY = 0;
+  let curX = null;
+  let curY = null;
+  let lean = 0; // tilts into travel direction for a lifelike walk
+  let rafId = null;
 
-  torusKnot.rotation.x += 0.01;
-  torusKnot.rotation.y += 0.02;
+  const computeTarget = () => {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const sy = window.scrollY;
 
-  // Move the camera smoothly based on scroll position
-  camera.position.z = t * -0.01 + 30;
-  camera.position.x = t * -0.0002;
-  camera.position.y = t * -0.0002;
+    let x, yDoc;
+    if (sy <= anchors[0]) {
+      x = stops[0].xf * vw;
+      yDoc = anchors[0];
+    } else if (sy >= anchors[anchors.length - 1]) {
+      const last = stops.length - 1;
+      x = stops[last].xf * vw;
+      yDoc = anchors[last];
+    } else {
+      let i = 0;
+      while (i < anchors.length - 2 && sy >= anchors[i + 1]) i++;
+      const t = easeInOut(
+        Math.min(Math.max((sy - anchors[i]) / (anchors[i + 1] - anchors[i]), 0), 1)
+      );
+      x =
+        (stops[i].xf + (stops[i + 1].xf - stops[i].xf) * t) * vw;
+      yDoc = anchors[i] + (anchors[i + 1] - anchors[i]) * t;
+    }
+
+    // Parked stops snap to their element's actual center
+    const activeIdx =
+      sy <= anchors[0]
+        ? 0
+        : sy >= anchors[anchors.length - 1]
+          ? stops.length - 1
+          : (() => {
+              let i = 0;
+              while (i < anchors.length - 2 && sy >= anchors[i + 1]) i++;
+              return i;
+            })();
+
+    if (stops[activeIdx]?.park) {
+      const rect = stops[activeIdx].el.getBoundingClientRect();
+      x = rect.left + rect.width / 2;
+      targetX = x;
+      targetY = Math.max(rect.top + rect.height / 2 - avatar.offsetHeight / 2, 90);
+      return;
+    }
+
+    // Convert to screen space and keep it comfortably inside the viewport
+    targetX = x - avatar.offsetWidth / 2;
+    targetY = Math.min(
+      Math.max(yDoc - sy, 90),
+      vh - avatar.offsetHeight - 70
+    );
+  };
+
+  const step = () => {
+    const prevX = curX;
+    curX += (targetX - curX) * 0.06;
+    curY += (targetY - curY) * 0.06;
+
+    // Lean proportional to horizontal motion, settling back to upright
+    const leanTarget = Math.max(Math.min((curX - prevX) * 2.4, 7), -7);
+    lean += (leanTarget - lean) * 0.08;
+
+    avatar.style.transform = `translate3d(${curX.toFixed(1)}px, ${curY.toFixed(1)}px, 0) rotate(${lean.toFixed(2)}deg)`;
+
+    if (
+      Math.abs(targetX - curX) > 0.4 ||
+      Math.abs(targetY - curY) > 0.4 ||
+      Math.abs(lean) > 0.05
+    ) {
+      rafId = requestAnimationFrame(step);
+    } else {
+      rafId = null;
+    }
+  };
+
+  const wake = () => {
+    if (rafId === null) rafId = requestAnimationFrame(step);
+  };
+
+  const refresh = () => {
+    measure();
+    computeTarget();
+    wake();
+  };
+
+  // First placement — snap into position, then fade in
+  measure();
+  computeTarget();
+  curX = targetX;
+  curY = targetY;
+  avatar.style.transform = `translate3d(${curX.toFixed(1)}px, ${curY.toFixed(1)}px, 0) rotate(0deg)`;
+  requestAnimationFrame(() => avatar.classList.add("is-ready"));
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      measure();
+      computeTarget();
+      wake();
+    },
+    { passive: true }
+  );
+  window.addEventListener("resize", refresh);
+  window.addEventListener("load", refresh);
 }
-
-// Bind scroll event
-document.body.onscroll = moveCamera;
-moveCamera(); // Call once to set initial position
-
-// 6. ANIMATION LOOP
-const timer = new THREE.Timer(); // for smooth particle animation
-
-function animate() {
-  requestAnimationFrame(animate);
-  const elapsedTime = timer.getElapsed();
-
-  // Gentle continuous rotation
-  torusKnot.rotation.x += 0.002;
-  torusKnot.rotation.y += 0.001;
-
-  cube.rotation.x += 0.005;
-  cube.rotation.z += 0.002;
-
-  // Float the particles slowly
-  particlesMesh.rotation.y = elapsedTime * 0.05;
-
-  // Rotate the entire scene extremely slowly to feel dynamic
-  scene.rotation.y += 0.0005;
-
-  renderer.render(scene, camera);
-}
-
-animate();

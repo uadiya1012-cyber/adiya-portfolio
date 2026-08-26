@@ -16,3 +16,8 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
 }
+
+/* Push the header right so the avatar has a clear lane on the left */
+.services .section-header {
+  margin-left: auto;
+}

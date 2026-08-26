@@ -1,8 +1,24 @@
 :root {
-    --primary: #00d2ff;
-    --dark: #0a0a0a;
-    --light: #ffffff;
-    --text: #cccccc;
+    /* Palette — calm dark, single indigo accent */
+    --bg: #0f1115;
+    --bg-soft: #14171e;
+    --surface: rgba(255, 255, 255, 0.04);
+    --border: rgba(255, 255, 255, 0.08);
+
+    --primary: #818cf8;
+    --primary-strong: #6366f1;
+
+    /* Text */
+    --white: #ffffff;
+    --light: #e6e8ef;
+    --text: #aab0bf;
+    --muted: #7c8290;
+    --gray-300: #c3c8d4;
+
+    /* Legacy aliases (kept so existing rules keep working) */
+    --dark: #f1f3f9;          /* headings on dark bg */
+    --primary-color: var(--primary);
+    --text-color: var(--text);
 
     --radius: 12px;
     --container: 1200px;

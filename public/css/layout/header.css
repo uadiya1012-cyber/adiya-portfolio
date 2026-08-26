@@ -6,6 +6,10 @@
 
   padding: 8px 0;
   /* give a little vertical breathing room */
+  background: rgba(15, 17, 21, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .nav {
@@ -68,30 +72,35 @@
 
 @media (max-width: 768px) {
   .nav {
-    justify-content: center;
-    padding: 0 12px;
+    height: auto;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 12px;
+  }
+
+  .nav__logo {
+    order: 0;
   }
 
   .nav__menu {
-    gap: 12px;
+    order: 1;
+    gap: 6px 16px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .btn {
-    order: 3;
-    width: 100%;
-    max-width: 240px;
-  }
-
-  .nav__logo {
-    order: 1;
+  .nav .btn {
+    order: 2;
+    width: auto;
+    max-width: none;
+    padding: 10px 22px;
   }
 }
 
-@media (max-width: 420px) {
-  .nav__menu {
-    gap: 8px;
+@media (max-width: 480px) {
+  /* Hero already carries the CTA — keep the bar to a single tidy row-set */
+  .nav .btn {
+    display: none;
   }
 
   .nav__link {
