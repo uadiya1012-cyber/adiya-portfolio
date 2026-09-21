@@ -14,12 +14,16 @@
   align-items: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  /* visibility keeps the closed modal out of the tab order and the a11y tree */
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 }
 
 .cv-modal-overlay.active {
   opacity: 1;
   pointer-events: all;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0s;
 }
 
 .cv-modal {

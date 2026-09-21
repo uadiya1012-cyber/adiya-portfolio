@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vega — Local AI Agent · Case Study · Adiya</title>
+    <meta
+      name="description"
+      content="Case study: Vega, a local bilingual AI agent on Ollama with a permission-gated coding mode, hybrid RAG, and an Obsidian 'Brain' shared with four AI clients over MCP. 493 tests."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/layout/case-study.css" />
+  </head>
+
+  <body class="case-page">
+    <header class="header">
+      <nav class="nav container">
+        <a href="/" class="nav__logo">UADIYA</a>
+        <ul class="nav__menu">
+          <li><a href="/#projects" class="nav__link">← All work</a></li>
+          <li><a href="/#about" class="nav__link">About</a></li>
+        </ul>
+        <a href="/#contact" class="btn btn--primary">Hire Me</a>
+      </nav>
+    </header>
+
+    <main>
+      <article class="case container">
+        <p class="case-kicker">Case study · Local AI · Developer tooling</p>
+        <h1 class="case-title">
+          Vega
+          <span>A local, bilingual AI agent — and the shared "Brain" behind my AI tools</span>
+        </h1>
+        <p class="case-lead">
+          Vega is a Python agent that runs entirely on a MacBook: chat in
+          Mongolian or English, a permission-gated coding agent, a hybrid RAG
+          knowledge base and a news writer, all on local Ollama models. Its Brain
+          module turns an Obsidian vault into shared memory that Claude Code,
+          Claude Desktop, Antigravity and Gemini all read and write through one
+          MCP server.
+        </p>
+        <div class="chip-row">
+          <span class="chip">Python</span><span class="chip">Ollama</span
+          ><span class="chip">qwen3 · gemma3</span><span class="chip">FastAPI</span
+          ><span class="chip">SQLite FTS5</span><span class="chip">bge-m3</span
+          ><span class="chip">MCP</span><span class="chip">launchd</span
+          ><span class="chip">LoRA</span>
+        </div>
+
+        <dl class="case-facts">
+          <div class="case-fact">
+            <dt>My role</dt>
+            <dd>Independent project. All design and code.</dd>
+          </div>
+          <div class="case-fact">
+            <dt>Status</dt>
+            <dd>
+              Daily driver. Vega is the coding assistant in my terminal, and the
+              Brain has been the shared memory of four AI clients since September
+              2026.
+            </dd>
+          </div>
+          <div class="case-fact">
+            <dt>Scale</dt>
+            <dd>
+              493 automated tests · tool-selection eval suite · 8 MCP tools ·
+              4 activity sources.
+            </dd>
+          </div>
+          <div class="case-fact">
+            <dt>Constraints</dt>
+            <dd>
+              16 GB Apple Silicon laptop, no cloud dependency, Mongolian first.
+            </dd>
+          </div>
+        </dl>
+
+        <section class="case-section">
+          <h2>The <span>problem</span></h2>
+          <p>
+            Cloud assistants are weak in Mongolian, bill per token and cannot see
+            local files. And every AI tool I use keeps its own memory, so nothing
+            learned in one is known to the next. I wanted a local-first agent
+            whose permissions I control, and one place where all of my tools
+            remember things.
+          </p>
+        </section>
+
+        <section class="case-section">
+          <h2>What I <span>built</span></h2>
+          <ul>
+            <li>
+              <strong>Coding agent with a workspace sandbox.</strong> Tools are
+              tiered read / write / exec: writes need one approval per session,
+              commands need approval every time. Path escapes and secret files
+              (<code>.env</code>, keys, <code>.ssh</code>) are refused. After an
+              edit the agent shows the diff and runs the tests.
+            </li>
+            <li>
+              <strong>Hybrid retrieval.</strong> bge-m3 dense vectors plus SQLite
+              FTS5 keyword search, article-aware chunking, and score thresholds
+              set from measurements rather than defaults.
+            </li>
+            <li>
+              <strong>Model routing per task.</strong> gemma3:12b for Mongolian
+              long-form writing, qwen3:8b for tool calling — one warm model at a
+              time inside the 16 GB budget.
+            </li>
+            <li>
+              <strong>Mongolian quality guard.</strong> Heuristics catch broken
+              Mongolian and CJK leakage and regenerate the answer.
+            </li>
+            <li>
+              <strong>Providers.</strong> Local Ollama or any OpenAI-compatible
+              API, switchable per request.
+            </li>
+            <li>
+              <strong>The Brain.</strong> An Obsidian vault as shared memory. An
+              MCP server exposes search, read, write, log, recent and a task
+              board; privacy rules by front matter, tag or folder decide what
+              cloud AIs may see.
+            </li>
+            <li>
+              <strong>Activity trail.</strong> Each day's work is written to the
+              vault from four sources — Claude Code hooks, Antigravity's local
+              database, git and Vega itself — by a nightly launchd job. A morning
+              brief is injected into every new Claude Code session.
+            </li>
+            <li>
+              <strong>Task board with a human in charge.</strong> An AI may
+              propose a task and report progress, but only the human can close
+              it.
+            </li>
+          </ul>
+        </section>
+
+        <section class="case-section">
+          <h2>Archi<span>tecture</span></h2>
+<pre class="case-diagram">Terminal / Web UI (FastAPI)
+        │
+    Vega core ── router ── Ollama (qwen3:8b · gemma3:12b) | OpenAI-compatible APIs
+        │  tools: read · write ✋ · exec 🔁          RAG: bge-m3 + FTS5 (SQLite)
+        │
+~/Brain (Obsidian vault) ◄── MCP server ──► Claude Code · Claude Desktop · Antigravity · Gemini
+        ▲
+   activity.py ◄── Claude Code hooks · Antigravity DB · git · Vega     (launchd, nightly)</pre>
+        </section>
+
+        <section class="case-section">
+          <h2>Hard problems and <span>decisions</span></h2>
+
+          <h3>Adding a tool made the other tools worse</h3>
+          <p>
+            The eval showed it plainly: after adding a task-board tool, tool
+            selection on an 8B model dropped from 40/40 to 36/40. Offering every
+            tool on every turn was the mistake. Now the task tool is offered only
+            when the message is about tasks, and every new tool must pass both the
+            eval and real runs before it ships. The suite stands at 46/46.
+          </p>
+
+          <h3>The fine-tune that lied</h3>
+          <p>
+            A LoRA model trained on my own Mongolian data produced gibberish in
+            use while its metrics looked fine. The training set contained 21
+            duplicated pairs that had leaked from the test set. The fix was a data
+            audit and routing everything back to the base model; fine-tuning is on
+            hold until there is a clean dataset and more memory.
+          </p>
+
+          <h3>Embeddings that actually separate Mongolian topics</h3>
+          <p>
+            nomic-embed-text scored every Mongolian passage above 0.7 against
+            every query, so no threshold could tell relevant from irrelevant.
+            bge-m3 separates topics: relevant answers score 0.54–0.74, unrelated
+            ones stay at or below 0.52. Thresholds are set from those measurements
+            and re-measured as the corpus grows.
+          </p>
+
+          <h3>Visibility over blocking</h3>
+          <p>
+            Rather than locking AI tools down, every action they take is written
+            to the day's note with an "auto" tag, and the permission model is
+            "read freely, ask before changing". A daily health line lists where
+            work sits uncommitted or unpushed.
+          </p>
+
+          <h3>One memory, no copies</h3>
+          <p>
+            Claude Code keeps its memory in per-project folders. Those folders are
+            now symlinks into the vault, so there is a single source of truth. The
+            indexer walks the vault without following links — a small detail that
+            decides where the real files must live.
+          </p>
+        </section>
+
+        <section class="case-section">
+          <h2>Re<span>sults</span></h2>
+          <div class="case-metrics">
+            <div class="case-metric"><b>493</b><span>automated tests</span></div>
+            <div class="case-metric"><b>46/46</b><span>tool-selection eval</span></div>
+            <div class="case-metric"><b>4</b><span>AI clients, one memory</span></div>
+            <div class="case-metric"><b>0</b><span>cloud calls required</span></div>
+          </div>
+          <ul>
+            <li>Read-only tools run without prompts; every write or command is approved and logged.</li>
+            <li>Permission rules, hooks and the nightly job are verified end-to-end on a real machine.</li>
+          </ul>
+        </section>
+
+        <section class="case-section">
+          <h2>What I <span>learned</span></h2>
+          <ul>
+            <li>Evaluate every prompt and tool change; small models regress silently.</li>
+            <li>Never trust a metric without auditing the data behind it.</li>
+            <li>On a laptop, memory budgeting is a feature: one warm model, a fixed context window, explicit keep-alive.</li>
+          </ul>
+        </section>
+
+        <p class="case-note">
+          The repository is private. I am happy to walk through the code in a call.
+        </p>
+
+        <nav class="case-nav">
+          <a href="/case-studies/taria-mal.html">← Previous: Тариа &amp; Мал</a>
+          <a href="/case-studies/autohub.html">Next: AutoHub →</a>
+        </nav>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container container">
+        <div class="footer__content">
+          <div class="footer__logo">UADIYA</div>
+          <p class="footer__copyright">© 2026 Adiya. All rights reserved.</p>
+          <div class="footer__socials">
+            <a href="https://www.linkedin.com/in/adiyakhuu-uuriintsolmon-b50592232/" aria-label="IN — LinkedIn">IN</a>
+            <a href="https://github.com/uadiya1012-cyber" aria-label="GH — GitHub">GH</a>
+            <a href="mailto:uadiya1012@gmail.com" aria-label="Gmail">Gmail</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

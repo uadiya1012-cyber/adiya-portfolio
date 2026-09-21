@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoHub — Case Study · Adiya</title>
+    <meta
+      name="description"
+      content="Case study: AutoHub, a roadside car-repair marketplace — weighted mechanic dispatch with PostGIS, a strict booking state machine, WebSocket live tracking, QPay payments. FastAPI + React PWA + Expo, 193 API tests."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/layout/case-study.css" />
+  </head>
+
+  <body class="case-page">
+    <header class="header">
+      <nav class="nav container">
+        <a href="/" class="nav__logo">UADIYA</a>
+        <ul class="nav__menu">
+          <li><a href="/#projects" class="nav__link">← All work</a></li>
+          <li><a href="/#about" class="nav__link">About</a></li>
+        </ul>
+        <a href="/#contact" class="btn btn--primary">Hire Me</a>
+      </nav>
+    </header>
+
+    <main>
+      <article class="case container">
+        <p class="case-kicker">Case study · Marketplace · Client project</p>
+        <h1 class="case-title">
+          AutoHub
+          <span>A roadside car-repair marketplace with live dispatch</span>
+        </h1>
+        <p class="case-lead">
+          Customers request a mechanic wherever they are. The platform picks the
+          best available mechanic by distance, rating and current load, walks each
+          booking through a strict state machine, tracks the job live over
+          WebSocket and settles with QPay. FastAPI and PostGIS on the backend; a
+          React PWA and a native Expo app on one shared TypeScript client.
+        </p>
+        <div class="chip-row">
+          <span class="chip">FastAPI</span><span class="chip">SQLAlchemy</span
+          ><span class="chip">Alembic</span><span class="chip">PostgreSQL</span
+          ><span class="chip">PostGIS</span><span class="chip">Redis</span
+          ><span class="chip">WebSocket</span><span class="chip">React</span
+          ><span class="chip">TypeScript</span><span class="chip">Expo</span
+          ><span class="chip">QPay</span>
+        </div>
+
+        <dl class="case-facts">
+          <div class="case-fact">
+            <dt>My role</dt>
+            <dd>
+              Architecture, backend, web app and the mobile groundwork, built for
+              a client.
+            </dd>
+          </div>
+          <div class="case-fact">
+            <dt>Status</dt>
+            <dd>
+              Client demo delivered in August 2026; commercial roll-out on hold
+              at the client's request. Client name and terms withheld.
+            </dd>
+          </div>
+          <div class="case-fact">
+            <dt>Scale</dt>
+            <dd>
+              193 API tests · 14 service modules · 4 roles (customer, mechanic,
+              dispatcher, admin).
+            </dd>
+          </div>
+          <div class="case-fact">
+            <dt>Long-term goal</dt>
+            <dd>
+              A registry of every vehicle with its service history, integrated
+              with the national transport registry.
+            </dd>
+          </div>
+        </dl>
+
+        <section class="case-section">
+          <h2>The <span>problem</span></h2>
+          <p>
+            A breakdown on the road today means phone calls and guesswork: who is
+            nearby, who is free, who is any good, and where is the mechanic right
+            now? The client wanted a marketplace that answers those questions
+            automatically and keeps a history for each vehicle.
+          </p>
+        </section>
+
+        <section class="case-section">
+          <h2>What I <span>built</span></h2>
+          <ul>
+            <li>
+              <strong>Dispatch.</strong> PostGIS finds mechanics within range;
+              each candidate is scored and ranked, and the winner is assigned.
+            </li>
+            <li>
+              <strong>Booking state machine.</strong> Seven statuses with an
+              explicit allow-list of transitions and of who may perform each one.
+            </li>
+            <li>
+              <strong>Live tracking.</strong> A realtime hub (in-memory for a
+              single node, Redis-backed for many) pushes status and position
+              updates over WebSocket to the customer and the dispatcher.
+            </li>
+            <li>
+              <strong>Payments and reviews.</strong> QPay invoices with their own
+              status lifecycle, a pricing service and mechanic reviews.
+            </li>
+            <li>
+              <strong>Vehicles.</strong> A registry with a lookup layer for the
+              national transport centre — simulated today behind a protocol so the
+              real API can be dropped in later.
+            </li>
+            <li>
+              <strong>Parts delivery.</strong> A delivery status flow for spare
+              parts brought by a taxi partner.
+            </li>
+            <li>
+              <strong>Rate limiting.</strong> A Redis sliding-window log
+              implemented as an atomic Lua script.
+            </li>
+            <li>
+              <strong>Two front-ends, one client.</strong> A React PWA and a
+              native Expo app (iOS and Android) share
+              <code>packages/shared</code> for types and the API client.
+            </li>
+          </ul>
+        </section>
+
+        <section class="case-section">
+          <h2>Archi<span>tecture</span></h2>
+<pre class="case-diagram">React PWA ──── packages/shared (types + API client) ──── Expo native app (iOS / Android)
+        │  REST + WebSocket
+FastAPI   api/v1 → services → repositories → db        (dependencies point one way only)
+        ├─ dispatch · booking_state · realtime · payment / qpay · pricing · rate_limit · vehicle
+        ├─ PostgreSQL + PostGIS   (Alembic migrations)
+        └─ Redis                  (realtime fan-out, rate limiting)</pre>
+        </section>
+
+        <section class="case-section">
+          <h2>Hard problems and <span>decisions</span></h2>
+
+          <h3>Dispatch you can explain</h3>
+          <p>
+            Candidates are filtered by radius and availability in PostGIS, then
+            scored: 50 % distance (a reference-distance decay, so the first
+            kilometres matter most), 30 % rating and 20 % free capacity
+            (1 − active jobs ÷ capacity). The weights are named constants with the
+            reasoning written next to them, so the client can tune them without
+            touching the algorithm.
+          </p>
+
+          <h3>A booking cannot go backwards</h3>
+          <p>
+            The earlier API accepted any string as a status, so a completed job
+            could be reopened. Transitions are now an explicit allow-list:
+            pending → confirmed → assigned → en route → in progress → completed.
+            Cancellation is allowed only before work starts, and each transition
+            is restricted to the roles that may perform it. Everything else is
+            rejected instead of silently "fixed".
+          </p>
+
+          <h3>Layers with a direction</h3>
+          <p>
+            <code>api → services → repositories → db</code>. Routers never write
+            SQL; repositories never make business decisions. This made the
+            external registry integration a one-function swap: the simulated
+            client sits behind a protocol, and the real one replaces it without
+            touching the rest of the code.
+          </p>
+
+          <h3>One client for two front-ends</h3>
+          <p>
+            The web PWA and the native Expo app import the same shared package.
+            Adding mobile did not mean rewriting the API client; only the token
+            storage strategy differs between the two.
+          </p>
+
+          <h3>Rate limiting that is actually atomic</h3>
+          <p>
+            The sliding-window log runs as a Lua script inside Redis, so
+            check-and-record happens in one step even under concurrent load.
+          </p>
+        </section>
+
+        <section class="case-section">
+          <h2>Re<span>sults</span></h2>
+          <div class="case-metrics">
+            <div class="case-metric"><b>193</b><span>API tests</span></div>
+            <div class="case-metric"><b>7</b><span>booking states, allow-listed</span></div>
+            <div class="case-metric"><b>3</b><span>dispatch signals, tunable</span></div>
+            <div class="case-metric"><b>2</b><span>front-ends, one client</span></div>
+          </div>
+          <ul>
+            <li>Demo delivered to the client with live dispatch and tracking end to end.</li>
+            <li>Business rules live in one place each: state machine, dispatch scoring, pricing.</li>
+          </ul>
+        </section>
+
+        <section class="case-section">
+          <h2>What I <span>learned</span></h2>
+          <ul>
+            <li>Make the algorithm legible to the client; named weights beat clever formulas.</li>
+            <li>An allow-list state machine removes a whole class of "impossible" bugs.</li>
+            <li>Design the integration seam before the partner API exists; the swap is then trivial.</li>
+          </ul>
+        </section>
+
+        <p class="case-note">
+          Built for a client whose name and commercial terms are withheld. The
+          repository is private.
+        </p>
+
+        <nav class="case-nav">
+          <a href="/case-studies/vega.html">← Previous: Vega</a>
+          <a href="/#projects">All work →</a>
+        </nav>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container container">
+        <div class="footer__content">
+          <div class="footer__logo">UADIYA</div>
+          <p class="footer__copyright">© 2026 Adiya. All rights reserved.</p>
+          <div class="footer__socials">
+            <a href="https://www.linkedin.com/in/adiyakhuu-uuriintsolmon-b50592232/" aria-label="IN — LinkedIn">IN</a>
+            <a href="https://github.com/uadiya1012-cyber" aria-label="GH — GitHub">GH</a>
+            <a href="mailto:uadiya1012@gmail.com" aria-label="Gmail">Gmail</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

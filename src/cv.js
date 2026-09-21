@@ -8,11 +8,13 @@ export function initCVModal() {
   function openModal(e) {
     if (e) e.preventDefault();
     modalOverlay.classList.add('active');
+    modalOverlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
   }
 
   function closeModal() {
     modalOverlay.classList.remove('active');
+    modalOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
 

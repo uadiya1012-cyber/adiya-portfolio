@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тариа & Мал — Case Study · Adiya</title>
+    <meta
+      name="description"
+      content="Case study: Тариа & Мал, an offline-first PWA for Mongolian herders — QR livestock registry, AI disease diagnosis, satellite pasture monitoring, cost-capped AI and 375 automated tests."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/layout/case-study.css" />
+  </head>
+
+  <body class="case-page">
+    <header class="header">
+      <nav class="nav container">
+        <a href="/" class="nav__logo">UADIYA</a>
+        <ul class="nav__menu">
+          <li><a href="/#projects" class="nav__link">← All work</a></li>
+          <li><a href="/#about" class="nav__link">About</a></li>
+        </ul>
+        <a href="/#contact" class="btn btn--primary">Hire Me</a>
+      </nav>
+    </header>
+
+    <main>
+      <article class="case container">
+        <p class="case-kicker">Case study · Agriculture · Offline-first PWA</p>
+        <h1 class="case-title">
+          Тариа &amp; Мал
+          <span>An offline-first platform for Mongolian herders</span>
+        </h1>
+        <p class="case-lead">
+          A progressive web app, wrapped in Capacitor shells for Android and iOS,
+          that keeps working when the network doesn't. Herders register animals
+          with QR tags, get an AI opinion on a sick animal from a photo, watch
+          pasture health from satellite data, receive weather danger alerts and
+          reach a vet or agronomist — in Mongolian or Kazakh.
+        </p>
+        <div class="chip-row">
+          <span class="chip">NestJS</span><span class="chip">Prisma</span
+          ><span class="chip">PostgreSQL</span><span class="chip">React</span
+          ><span class="chip">Vite</span><span class="chip">PWA</span
+          ><span class="chip">Capacitor</span><span class="chip">IndexedDB</span
+          ><span class="chip">Claude Vision</span><span class="chip">Sentinel-2</span
+          ><span class="chip">QPay</span>
+        </div>
+
+        <dl class="case-facts">
+          <div class="case-fact">
+            <dt>My role</dt>
+            <dd>
+              Independent product. Architecture, backend, frontend, the offline
+              data layer, QA and cost engineering.
+            </dd>
+          </div>
+          <div class="case-fact">
+            <dt>Status</dt>
+            <dd>
+              Feature-complete, CI green. Deliberately running in demo mode (no
+              paid API keys) while the offline knowledge base awaits veterinary
+              review.
+            </dd>
+          </div>
+          <div class="case-fact">
+            <dt>Scale</dt>
+            <dd>
+              26 features · 375 automated tests · Mongolian and Kazakh UI ·
+              traditional Mongolian script mode.
+            </dd>
+          </div>
+          <div class="case-fact">
+            <dt>Timeline</dt>
+            <dd>
+              2026, iterative releases. Performance and cost audit in August, free
+              tier defined in September.
+            </dd>
+          </div>
+        </dl>
+
+        <section class="case-section">
+          <h2>The <span>problem</span></h2>
+          <p>
+            Herding families in Mongolia move with the seasons across land where a
+            mobile signal is the exception. Most farming apps assume the opposite:
+            always online, always in English, always on a fast phone. What herders
+            actually need is to record an animal in the field, get advice without a
+            signal, be warned before a <em>zud</em> (a killing winter) and do all of
+            it in their own language on a cheap device.
+          </p>
+        </section>
+
+        <section class="case-section">
+          <h2>What I <span>built</span></h2>
+          <ul>
+            <li>
+              <strong>Offline-first data layer.</strong> Every write lands in
+              IndexedDB first and syncs later through a queue; a service worker
+              serves the app shell and the knowledge base with no network at all.
+            </li>
+            <li>
+              <strong>Livestock registry.</strong> A QR tag per animal (camera, NFC
+              or manual entry), lineage (dam, sire, offspring), vaccination and
+              calving reminders driven by cron, and a herd dashboard.
+            </li>
+            <li>
+              <strong>AI diagnosis.</strong> A photo of a sick animal goes to
+              Claude Vision through a proxy that enforces quotas. An offline
+              knowledge base of 150 entries answers first, online or not.
+            </li>
+            <li>
+              <strong>Weather and danger alerts.</strong> OpenWeather behind a
+              22-location cache; zud and cold-snap rules ready behind a
+              specialist's sign-off.
+            </li>
+            <li>
+              <strong>Pasture.</strong> NDVI from Sentinel-2 imagery, collective
+              pasture allocation with conflict detection, and GPS migration routes
+              recorded offline with noise filtering.
+            </li>
+            <li>
+              <strong>Market.</strong> Price feeds with pluggable adapters and
+              history, trading and lost-animal listings.
+            </li>
+            <li>
+              <strong>Community and roles.</strong> Forum, vet and agronomist
+              dashboards, a premium tier via QPay with ebarimt e-receipts, SMS and
+              Web Push notifications, an admin panel.
+            </li>
+            <li>
+              <strong>Language.</strong> Mongolian and Kazakh, voice input (Web
+              Speech, mn-MN) and a vertical traditional Mongolian script mode.
+            </li>
+          </ul>
+        </section>
+
+        <section class="case-section">
+          <h2>Archi<span>tecture</span></h2>
+<pre class="case-diagram">React + Vite PWA ───────────────────── Capacitor shells (Android / iOS)
+├─ screens: Home · Livestock · Crops · Pasture · Market · Chat · QR
+├─ db.js        IndexedDB — every write lands here first
+├─ sw.js        service worker — app shell, offline KB, push
+└─ offlineKB    150 entries answer before any network call
+        │  sync queue (retry, dedupe by local key)
+        ▼
+NestJS API ─── auth · livestock · ai · weather · prices · pasture · notifications
+        │  Prisma
+        ▼
+PostgreSQL        external: Claude Vision · OpenWeather · Sentinel-2 · Twilio · VAPID · QPay</pre>
+        </section>
+
+        <section class="case-section">
+          <h2>Hard problems and <span>decisions</span></h2>
+
+          <h3>Offline is the default, not a fallback</h3>
+          <p>
+            A GPS point or a new animal is always written locally first; the
+            server is secondary. If an upload fails the data stays and retries
+            later. Duplicates are blocked twice: a local key
+            (<code>routeId|recordedAt</code>) and a database unique constraint with
+            <code>skipDuplicates</code>. Raw GPS tracks were ballooning routes, so
+            points are filtered for accuracy, speed and jitter before they are
+            stored.
+          </p>
+
+          <h3>Keeping the AI cheap enough to leave the free tier open</h3>
+          <p>
+            Before any API key went into production I measured the cost per
+            request. Chat history is trimmed to the last 6 messages so token use
+            stops growing quadratically. Requests are capped at 10 messages ×
+            2,000 characters, which takes the worst case from roughly 2,100₮ to
+            roughly 20₮. Each user has a daily quota in an <code>AiUsage</code>
+            table, refunded automatically if the provider fails; the free tier
+            uses a cheaper model; and the offline knowledge base answers before
+            the network is touched. The last line of defence sits outside the
+            code: a monthly spending cap on the provider account.
+          </p>
+
+          <h3>Measure, then decide — including deciding not to</h3>
+          <p>
+            An August performance audit produced a list of fixes. I shipped the
+            ones the numbers supported: HTTP gzip (API responses about 5× smaller),
+            route-level code splitting, and lazy-loading the QR scanner (main
+            bundle 190.8 → 142.4 KB, roughly 31 s → 23 s on a slow 2G-class link).
+            Three "obvious" optimisations were rejected after measuring:
+            lazy-loading the knowledge base (8 s saved, but a synchronous search
+            would turn async across four screens), incremental distance
+            calculation (wrong distances for out-of-order offline points) and
+            delta sync (after gzip, 1,000 animals is about 37 KB). Each rejection
+            is written down with the condition that would reopen it.
+          </p>
+
+          <h3>Don't cry wolf</h3>
+          <p>
+            The first danger rule was "below −20 °C or wind over 50 km/h". In a
+            Mongolian winter that fires almost every day for three months —
+            Ulaanbaatar's January average low is −25.9 °C — and herders would learn
+            to ignore the one alert that matters. I researched how zud is actually
+            defined, rewrote the thresholds and left the alert switched off until a
+            livestock specialist validates them.
+          </p>
+
+          <h3>Correct content over more content</h3>
+          <p>
+            The 150-entry offline knowledge base ships flagged as preliminary
+            (<code>verified: false</code>). Medication names and dosages are
+            deliberately withheld until a veterinarian has reviewed the entries.
+          </p>
+
+          <h3>Working with AI coding agents without losing control</h3>
+          <p>
+            Parts of the UI were drafted by one AI agent and reviewed by another.
+            The rule that made it work: tests decide, not the author's own
+            description of the change. Every new convention got a test alongside
+            the instruction.
+          </p>
+        </section>
+
+        <section class="case-section">
+          <h2>Re<span>sults</span></h2>
+          <div class="case-metrics">
+            <div class="case-metric"><b>26</b><span>features shipped</span></div>
+            <div class="case-metric"><b>375</b><span>automated tests</span></div>
+            <div class="case-metric"><b>5×</b><span>smaller API responses</span></div>
+            <div class="case-metric"><b>~100×</b><span>cheaper AI worst case</span></div>
+          </div>
+          <ul>
+            <li>Works fully offline, including QR scanning, GPS routes and the knowledge base.</li>
+            <li>Two languages plus traditional script; native shells for both stores.</li>
+            <li>1,000 animals sync in about 37 KB after compression.</li>
+          </ul>
+        </section>
+
+        <section class="case-section">
+          <h2>What I <span>learned</span></h2>
+          <ul>
+            <li>Measure before optimising; half of the audit's suggestions were wrong for this app.</li>
+            <li>A safety feature is only safe once someone with domain knowledge has signed it off.</li>
+            <li>Demo mode by design beats an open API key with unbounded spend.</li>
+          </ul>
+        </section>
+
+        <p class="case-note">
+          The repository is private. I am happy to walk through the code in a call.
+        </p>
+
+        <nav class="case-nav">
+          <a href="/#projects">← All work</a>
+          <a href="/case-studies/vega.html">Next: Vega — local AI agent →</a>
+        </nav>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container container">
+        <div class="footer__content">
+          <div class="footer__logo">UADIYA</div>
+          <p class="footer__copyright">© 2026 Adiya. All rights reserved.</p>
+          <div class="footer__socials">
+            <a href="https://www.linkedin.com/in/adiyakhuu-uuriintsolmon-b50592232/" aria-label="IN — LinkedIn">IN</a>
+            <a href="https://github.com/uadiya1012-cyber" aria-label="GH — GitHub">GH</a>
+            <a href="mailto:uadiya1012@gmail.com" aria-label="Gmail">Gmail</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
