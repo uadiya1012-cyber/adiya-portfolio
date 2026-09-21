@@ -1,13 +1,12 @@
 # Adiya — Personal Portfolio
 
-Three.js суурьтай 3D дэвсгэртэй хувийн portfolio сайт. Vite-аар build хийж, Firebase Hosting дээр байршдаг.
+Хувийн portfolio сайт: bento grid, cursor spotlight, count-up болон scroll reveal анимацитай. Vite-аар build хийж, Firebase Hosting дээр байршдаг.
 
 **Live:** https://athena-fullstack-adiya-d2f8e.web.app
 
 ## Технологи
 
 - [Vite](https://vite.dev) — build tool
-- [Three.js](https://threejs.org) — hero хэсгийн 3D дэвсгэр
 - Vanilla JS + CSS (framework ашиглаагүй)
 - Firebase Hosting
 
@@ -16,7 +15,7 @@ Three.js суурьтай 3D дэвсгэртэй хувийн portfolio сай�
 ```
 index.html          Сайтын бүх бүтэц (Vite-ийн entry)
 src/
-  main.js           Three.js scene + сайтын үндсэн логик
+  main.js           Spotlight, count-up, scroll reveal анимаци + сайтын үндсэн логик
   weather.js        Цаг агаарын widget
   cv.js             CV modal
   style.css         main.js-ээс import хийгддэг (bundle-д ордог)
