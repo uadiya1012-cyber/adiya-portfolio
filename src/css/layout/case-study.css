@@ -1,21 +1,14 @@
-/* Case-study pages (/case-studies/*.html).
-   Static pages in public/, so they load /css/style.css directly and are not
-   bundled by Vite — body background lives here instead of src/style.css. */
-
-.case-page {
-  background-color: var(--bg);
-  background-image:
-    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(99, 102, 241, 0.1), transparent),
-    linear-gradient(180deg, #0f1115 0%, #0c0e12 100%);
-  background-attachment: fixed;
-  overflow-x: clip;
-}
+/* Case-study pages (/case-studies/*.html) — Vite-ийн нэмэлт entry-ууд.
+   Дэвсгэр нь base/body.css-д, нийтлэг загвар нь css/style.css-д. */
 
 .case-page main {
   padding: 120px 0 40px;
 }
 
-.case {
+/* .case.container — specificity-г зориуд өсгөсөн: bundle хийхэд CSS-ийн
+   ачаалах дараалал өөрчлөгддөг тул .container-ын 1200px-ийг дарааллаас
+   үл хамааран дарах ёстой. */
+.case.container {
   max-width: 820px;
 }
 

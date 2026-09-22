@@ -1,0 +1,14 @@
+/* Хуудасны суурь дэвсгэр — нүүр болон case-study хуудсуудад нэгэн адил.
+   (Өмнө нь src/style.css болон .case-page дээр хоёр тусдаа хуулбар байсан.) */
+body {
+  background-color: var(--bg);
+  /* Тайван, хөдөлгөөнгүй градиент — дээд талдаа бүдэг индиго гэрэлтэлт */
+  background-image: radial-gradient(
+      ellipse 90% 55% at 50% -10%,
+      rgba(99, 102, 241, 0.1),
+      transparent
+    ),
+    linear-gradient(180deg, #0f1115 0%, #0c0e12 100%);
+  background-attachment: fixed;
+  overflow-x: clip;
+}

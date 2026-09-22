@@ -1,4 +1,3 @@
-import "./style.css";
 import { initWeatherWidget } from "./weather.js";
 import { initCVModal } from "./cv.js";
 

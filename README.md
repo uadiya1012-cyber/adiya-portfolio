@@ -13,18 +13,26 @@
 ## Бүтэц
 
 ```
-index.html          Сайтын бүх бүтэц (Vite-ийн entry)
+index.html          Нүүр хуудас (Vite-ийн үндсэн entry)
+case-studies/       Case-study хуудсууд — Vite-ийн нэмэлт entry-ууд
+  autohub.html
+  vega.html
+  taria-mal.html
 src/
   main.js           Spotlight, count-up, scroll reveal анимаци + сайтын үндсэн логик
   weather.js        Цаг агаарын widget
   cv.js             CV modal
-  style.css         main.js-ээс import хийгддэг (bundle-д ордог)
+  css/style.css     Модулиудыг @import хийдэг stylesheet-ийн entry
+    base/ layout/ components/
 public/             Build-д хөндөгдөхгүй, dist/-рүү шууд хуулагддаг
-  css/              Модуль болгон хуваасан stylesheet-үүд
-  js/3d-tilt.js     Картын tilt эффект
   assets/           Icon, зураг, logo
+  favicon.svg  robots.txt
 dist/               Build-ийн үр дүн (git-д ордоггүй, Firebase үүнийг deploy хийдэг)
 ```
+
+CSS-ийг `public/`-д биш `src/`-д байрлуулсан учир нь Vite `@import` гинжийг
+build үед **нэг minify хийсэн, hash-тай файл** болгон нийлүүлдэг. Case-study
+хуудсууд мөн entry болсон тул тэд ч энэ bundle-ийг хуваалцдаг.
 
 ## Ажиллуулах
 
