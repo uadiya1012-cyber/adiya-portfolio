@@ -202,6 +202,50 @@
   color: var(--primary);
 }
 
+/* Дэлгэцийн зураг — «In action» хэсэг. Утасны зургууд 3 багана, ширээний
+   зураг бүтэн өргөн. Зургийг webp, 2x нягтралтай, width/height-тэй өгдөг тул
+   ачаалахад зай нь урьдчилан хадгалагдана (CLS 0 хэвээр). */
+.case-shots {
+  display: grid;
+  gap: 14px;
+  margin: 8px 0 12px;
+}
+
+.case-shots--phones {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.case-shots--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.case-shot {
+  margin: 0;
+  min-width: 0;
+}
+
+.case-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+}
+
+.case-shot figcaption {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.case-shots-note {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
 @media (max-width: 640px) {
   .case-page main {
     padding-top: 96px;
@@ -219,5 +263,27 @@
   .case-diagram {
     font-size: 11.5px;
     padding: 14px;
+  }
+
+  .case-shots--phones {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* 3 зургийн сүүлчийнх утсан дээр ганцаараа үлдэхээр мөрийг бүтэн эзэлж,
+     тайлбар нь зургийн баруун талд, хоосон зайд орно. */
+  .case-shots--phones > .case-shot:nth-child(3):last-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .case-shots--phones > .case-shot:nth-child(3):last-child figcaption {
+    margin-top: 0;
+  }
+
+  .case-shots--two {
+    grid-template-columns: 1fr;
   }
 }
