@@ -27,552 +27,265 @@
   </head>
 
   <body>
-    <!-- Floating companion avatar — travels down the page behind content -->
-    <div class="floating-avatar" aria-hidden="true">
-      <img src="/assets/images/profile.webp" width="720" height="1081" alt="" />
-    </div>
-
     <header class="header">
       <nav class="nav container">
         <a href="#home" class="nav__logo">UADIYA</a>
 
         <ul class="nav__menu">
-          <li><a href="#home" class="nav__link">Home</a></li>
-          <li><a href="#services" class="nav__link">Skills</a></li>
-          <li><a href="#about" class="nav__link">About</a></li>
           <li><a href="#projects" class="nav__link">Work</a></li>
+          <li><a href="#about" class="nav__link">About</a></li>
           <li><a href="#contact" class="nav__link">Contact</a></li>
           <li><a href="/web/" class="nav__link" lang="mn">Вэб сайт хийлгэх</a></li>
         </ul>
 
-        <a href="#contact" class="btn btn--primary">Hire Me</a>
+        <a href="#contact" class="btn btn--primary">Get in touch</a>
       </nav>
     </header>
 
     <main>
-      <!-- ═══════════════ HERO · BENTO CLUSTER ═══════════════ -->
-      <section class="hero" id="home">
+      <!-- ═══ НҮҮР: нэр, нэг өгүүлбэр, 2 товч, 3 баримт. Хайрцаггүй. ═══ -->
+      <section class="intro" id="home">
         <div class="container">
-          <div class="bento-grid hero-bento">
-            <!-- Intro card -->
-            <article class="bento-cell bento-cell--intro">
-              <div class="hero-badge-row">
-                <span class="pill pill--live"><i></i> OPEN TO WORK</span>
-                <span class="pill">Ulaanbaatar · UTC+8</span>
-              </div>
+          <p class="intro-status"><span class="dot"></span> Open to work · Ulaanbaatar</p>
 
-              <h1 class="hero-title">
-                Adiya<br />
-                <span class="hero-title__accent">builds systems</span><br />
-                that run live.
-              </h1>
+          <h1 class="intro-title">
+            Adiya builds <span>systems</span><br />
+            that run live.
+          </h1>
 
-              <p class="hero-sub">
-                Fullstack developer behind <strong>PowerPOS</strong> — a
-                production POS platform powering real businesses across
-                Mongolia. From offline-first herder apps to local AI agents,
-                I ship software that survives reality.
-              </p>
+          <p class="intro-text">
+            Fullstack developer. I build and run <strong>PowerPOS</strong>, a
+            point-of-sale system used by shops and restaurants across
+            Mongolia — and apps that keep working without internet.
+          </p>
 
-              <div class="hero-actions">
-                <a href="#projects" class="btn btn--primary">View Work</a>
-                <a href="#contact" class="btn btn--outline">Hire Me</a>
+          <div class="intro-actions">
+            <a href="#projects" class="btn btn--primary">See my work</a>
+            <a href="#contact" class="btn btn--outline">Get in touch</a>
+          </div>
+
+          <ul class="intro-facts">
+            <li><strong>7</strong> shipped projects</li>
+            <li><strong>2,000+</strong> automated tests</li>
+            <li><strong>Live</strong> at powerpos.mn</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ═══ АЖЛУУД: шилдэг 4 нь зурагтай, бусад нь богино жагсаалт.
+           Холбоос байхгүй газарт товч тавихгүй («Private repo» хассан). ═══ -->
+      <section class="work" id="projects">
+        <div class="container">
+          <h2 class="section-title" data-reveal>Selected <span>work</span></h2>
+
+          <div class="work-grid">
+            <article class="project" data-reveal>
+              <a class="project-thumb" href="https://powerpos.mn/" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                <img
+                  src="/assets/images/case/powerpos-app.webp"
+                  width="960"
+                  height="600"
+                  loading="lazy"
+                  alt="PowerPOS cashier app on desktop and phone: product grid, order list and total"
+                />
+              </a>
+              <div class="project-body">
+                <h3 class="project-title">PowerPOS <span class="tag-live">Live</span></h3>
+                <p class="project-desc">
+                  Point-of-sale system for shops and restaurants across
+                  Mongolia: a Windows cashier app that keeps selling offline,
+                  QPay payments, Ebarimt e-receipts and an owner dashboard.
+                  Backed by ~1,500 automated tests.
+                </p>
+                <p class="project-stack">Django · NestJS · Next.js · Electron · PostgreSQL</p>
+                <p class="project-links">
+                  <a href="https://powerpos.mn/" target="_blank" rel="noopener noreferrer">Visit powerpos.mn ↗</a>
+                  <a href="https://github.com/uadiya1012-cyber/PowerPOS-releases" target="_blank" rel="noopener noreferrer">App releases ↗</a>
+                </p>
               </div>
             </article>
 
-            <!-- Status card -->
-            <article class="bento-cell bento-cell--status">
-              <span class="cell-label">// status</span>
-              <div class="status-line">
-                <span class="dot dot--ok"></span>
-                <div>
-                  <strong>Available</strong>
-                  <p>Freelance &amp; full-time</p>
-                </div>
+            <article class="project" data-reveal>
+              <a class="project-thumb project-thumb--phones" href="/case-studies/taria-mal.html" tabindex="-1">
+                <img src="/assets/images/case/taria-welcome.webp" width="640" height="1385" loading="lazy" alt="Тариа &amp; Мал welcome screen" />
+                <img src="/assets/images/case/taria-home.webp" width="640" height="1385" loading="lazy" alt="Тариа &amp; Мал home screen" />
+              </a>
+              <div class="project-body">
+                <h3 class="project-title">Тариа &amp; Мал</h3>
+                <p class="project-desc">
+                  App for herders that works without internet: livestock
+                  registry with QR ear tags, disease check from a photo, and
+                  pasture maps from satellite data.
+                </p>
+                <p class="project-stack">NestJS · React · PWA · Capacitor</p>
+                <p class="project-links">
+                  <a href="/case-studies/taria-mal.html">Read the case study →</a>
+                </p>
               </div>
             </article>
 
-            <!-- Stats card -->
-            <article class="bento-cell bento-cell--stats">
-              <span class="cell-label">// by the numbers</span>
-              <div class="stats-rows">
-                <div class="stat">
-                  <span class="stat__num" data-count="7">0</span>
-                  <span class="stat__cap">shipped projects</span>
-                </div>
-                <div class="stat">
-                  <span class="stat__num" data-count="2000" data-suffix="+"
-                    >0</span
+            <article class="project" data-reveal>
+              <a class="project-thumb project-thumb--phones" href="/case-studies/autohub.html" tabindex="-1">
+                <img src="/assets/images/case/autohub-home.webp" width="640" height="1385" loading="lazy" alt="AutoHub home screen" />
+                <img src="/assets/images/case/autohub-tracking.webp" width="640" height="1385" loading="lazy" alt="AutoHub live mechanic tracking on a map" />
+              </a>
+              <div class="project-body">
+                <h3 class="project-title">AutoHub</h3>
+                <p class="project-desc">
+                  Roadside car-repair app: finds the nearest available mechanic
+                  and shows them arriving live on the map.
+                </p>
+                <p class="project-stack">FastAPI · PostGIS · WebSocket</p>
+                <p class="project-links">
+                  <a href="/case-studies/autohub.html">Read the case study →</a>
+                </p>
+              </div>
+            </article>
+
+            <article class="project" data-reveal>
+              <a class="project-thumb" href="/case-studies/vega.html" tabindex="-1">
+                <img
+                  src="/assets/images/case/vega-terminal.webp"
+                  width="1640"
+                  height="1414"
+                  loading="lazy"
+                  alt="Vega running in a terminal, answering in Mongolian"
+                />
+              </a>
+              <div class="project-body">
+                <h3 class="project-title">Vega — local AI assistant</h3>
+                <p class="project-desc">
+                  Personal AI assistant that runs fully on my laptop — no
+                  cloud, Mongolian and English, and it asks before using any
+                  tool.
+                </p>
+                <p class="project-stack">Python · FastAPI · Ollama</p>
+                <p class="project-links">
+                  <a href="/case-studies/vega.html">Read the case study →</a>
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="more-work" data-reveal>
+            <h3 class="more-work__title">Also built</h3>
+            <ul class="more-list">
+              <li>
+                <strong>Bukh-Uya</strong>
+                <span>Company website and internal HR system: staff, timesheets, payroll.</span>
+                <span class="more-links"><a href="https://bukhuya.mn/" target="_blank" rel="noopener noreferrer">bukhuya.mn ↗</a></span>
+              </li>
+              <li>
+                <strong>News portal</strong>
+                <span>News site with a hardened editor login: two-factor auth, roles, audit log.</span>
+              </li>
+              <li>
+                <strong>Expense tracker</strong>
+                <span>Budgeting app with dashboards and a Flutter mobile client.</span>
+                <span class="more-links">
+                  <a
+                    href="https://capstone-expense-tracker-c9g1.onrender.com/accounts/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Free Render instance sleeps when idle — first load can take 30–50 s"
+                    >Live app ↗</a
                   >
-                  <span class="stat__cap">automated tests</span>
-                </div>
-                <div class="stat">
-                  <span class="stat__num stat__num--live">LIVE</span>
-                  <span class="stat__cap">powerpos.mn</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Tech ticker -->
-            <article class="bento-cell bento-cell--ticker">
-              <span class="cell-label">// stack</span>
-              <p class="ticker-text">
-                TypeScript · Python · React · Next.js · Django · NestJS ·
-                FastAPI · PostgreSQL · Docker · Electron · Flutter · QPay /
-                Ebarimt · Ollama / RAG
-              </p>
-            </article>
+                  <a href="https://github.com/uadiya1012-cyber/capstone_project" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                </span>
+              </li>
+            </ul>
+            <a class="more-github" href="https://github.com/uadiya1012-cyber" target="_blank" rel="noopener noreferrer">More on GitHub ↗</a>
           </div>
         </div>
       </section>
 
-      <!-- ═══════════════ SKILLS · CAPABILITY BENTO ═══════════════ -->
-      <section class="services" id="services">
+      <!-- ═══ ЮУ ХИЙДЭГ ВЭ: 3 мөр. Стекийг энд ганц удаа л харуулна. ═══ -->
+      <section class="skills" id="services">
         <div class="container">
-          <div class="section-header section-header--light reveal-block">
-            <h2 class="section-title">Capability <span>Grid</span></h2>
-            <p class="section-text">
-              Every capability below is backed by a shipped project — not a
-              tutorial.
-            </p>
+          <h2 class="section-title" data-reveal>What I <span>do</span></h2>
+
+          <div class="skills-grid">
+            <div class="skill" data-reveal>
+              <h3>Web &amp; mobile apps</h3>
+              <p>
+                The whole product, from database to screen: React and Next.js
+                in front, Django, NestJS or FastAPI behind, Flutter and
+                Electron for apps.
+              </p>
+            </div>
+            <div class="skill" data-reveal>
+              <h3>Payments &amp; Mongolian tax</h3>
+              <p>
+                QPay payments and Ebarimt e-receipts, tested against the tax
+                authority's sandbox and running in production.
+              </p>
+            </div>
+            <div class="skill" data-reveal>
+              <h3>Offline-first &amp; AI</h3>
+              <p>
+                Apps that keep working when the internet drops, and AI features
+                that run locally — no data leaves the machine.
+              </p>
+            </div>
           </div>
 
-          <div class="bento-grid skills-bento">
-            <article class="bento-cell bento-span-2 skill-cell">
-              <span class="skill-num">01</span>
-              <h3 class="skill-cell__title">Full-Stack Web Development</h3>
-              <p class="skill-cell__desc">
-                End-to-end products: React / Next.js frontends over Django,
-                NestJS, or FastAPI backends. Proven by PowerPOS — a live
-                microservice platform — and the Тариа &amp; Мал agriculture
-                system.
-              </p>
-              <div class="chip-row">
-                <span class="chip">React</span><span class="chip">Next.js</span
-                ><span class="chip">Django</span><span class="chip">NestJS</span
-                ><span class="chip">FastAPI</span>
-              </div>
-            </article>
-
-            <article class="bento-cell skill-cell">
-              <span class="skill-num">02</span>
-              <h3 class="skill-cell__title">Production &amp; DevOps</h3>
-              <p class="skill-cell__desc">
-                Microservices, Docker, Nginx, CI/CD, migrations, backups —
-                running live on VPS at powerpos.mn.
-              </p>
-              <div class="chip-row">
-                <span class="chip">Docker</span><span class="chip">CI/CD</span
-                ><span class="chip">Nginx</span>
-              </div>
-            </article>
-
-            <article class="bento-cell bento-span-2 skill-cell">
-              <span class="skill-num">03</span>
-              <h3 class="skill-cell__title">AI-Powered Applications</h3>
-              <p class="skill-cell__desc">
-                Local-first LLM agents (Ollama), hybrid RAG pipelines, LoRA
-                fine-tuning, and AI vision — like livestock disease diagnosis
-                from photos.
-              </p>
-              <div class="chip-row">
-                <span class="chip">Ollama</span><span class="chip">RAG</span
-                ><span class="chip">LoRA</span><span class="chip">Vision</span>
-              </div>
-            </article>
-
-            <article class="bento-cell skill-cell">
-              <span class="skill-num">04</span>
-              <h3 class="skill-cell__title">Desktop &amp; Mobile</h3>
-              <p class="skill-cell__desc">
-                Electron cashier with offline mode &amp; thermal printing;
-                Flutter clients; Capacitor PWA native shells.
-              </p>
-              <div class="chip-row">
-                <span class="chip">Electron</span><span class="chip"
-                  >Flutter</span
-                ><span class="chip">Capacitor</span>
-              </div>
-            </article>
-
-            <article class="bento-cell skill-cell">
-              <span class="skill-num">05</span>
-              <h3 class="skill-cell__title">Payments &amp; Tax Compliance</h3>
-              <p class="skill-cell__desc">
-                QPay integration and Ebarimt e-tax validated against Mongolia's
-                tax authority sandbox; Ed25519 hardware licensing.
-              </p>
-              <div class="chip-row">
-                <span class="chip">QPay</span><span class="chip">Ebarimt</span
-                ><span class="chip">Ed25519</span>
-              </div>
-            </article>
-
-            <article class="bento-cell skill-cell">
-              <span class="skill-num">06</span>
-              <h3 class="skill-cell__title">Offline-First &amp; Real-Time</h3>
-              <p class="skill-cell__desc">
-                IndexedDB sync engines, WebSocket tracking, PostGIS geo queries
-                — built for connectivity-poor Mongolia.
-              </p>
-              <div class="chip-row">
-                <span class="chip">PWA</span><span class="chip">WebSocket</span
-                ><span class="chip">PostGIS</span>
-              </div>
-            </article>
-          </div>
+          <p class="skills-stack" data-reveal>
+            <span>Tools</span> TypeScript · Python · React · Next.js · Django ·
+            NestJS · FastAPI · PostgreSQL · Docker · Flutter · Electron
+          </p>
         </div>
       </section>
 
-      <!-- ═══════════════ ABOUT · THE AVATAR HAS A SEAT HERE ═══════════════ -->
+      <!-- ═══ МИНИЙ ТУХАЙ: хэрэглэгчийн сонгосон дүрс энд байнга сууна
+           (өмнө нь хуудас даяар хөвдөг байсан). ═══ -->
       <section class="about" id="about">
-        <div class="container">
-          <div class="section-header reveal-block">
-            <h2 class="section-title">About <span>Me</span></h2>
-          </div>
-
-          <div class="bento-grid about-bento">
-            <!-- Reserved seat — the floating companion parks here -->
-            <div class="bento-cell avatar-seat" id="avatar-seat">
-              <span class="avatar-seat__label">adiya.exe</span>
-            </div>
-
-            <article class="bento-cell bento-span-2 bio-cell">
-              <span class="cell-label">// whoami</span>
-              <p class="bio-text">
-                I'm a Fullstack Developer from Ulaanbaatar who ships real
-                systems, not demos. A POS platform serving live businesses, an
-                offline-first platform for herders, a fully local AI agent —
-                I care about clean architecture, a strong testing culture, and
-                Mongolian-language experiences done right.
-              </p>
-              <button id="open-cv-btn" class="btn btn--primary btn--small">
-                View Resume
-              </button>
-            </article>
-
-            <!-- Skills marquee -->
-            <div class="marquee-cell bento-span-3" aria-hidden="true">
-              <div class="marquee-track">
-                <span class="marquee-chip">TypeScript</span
-                ><span class="marquee-chip">Python</span
-                ><span class="marquee-chip">React</span
-                ><span class="marquee-chip">Next.js</span
-                ><span class="marquee-chip">Django</span
-                ><span class="marquee-chip">NestJS</span
-                ><span class="marquee-chip">FastAPI</span
-                ><span class="marquee-chip">PostgreSQL</span
-                ><span class="marquee-chip">PostGIS</span
-                ><span class="marquee-chip">Docker</span
-                ><span class="marquee-chip">Electron</span
-                ><span class="marquee-chip">Flutter</span
-                ><span class="marquee-chip">Capacitor</span
-                ><span class="marquee-chip">QPay</span
-                ><span class="marquee-chip">Ebarimt</span
-                ><span class="marquee-chip">Ollama</span
-                ><span class="marquee-chip">RAG</span
-                ><span class="marquee-chip">Playwright</span
-                ><!-- duplicated for seamless loop -->
-                <span class="marquee-chip">TypeScript</span
-                ><span class="marquee-chip">Python</span
-                ><span class="marquee-chip">React</span
-                ><span class="marquee-chip">Next.js</span
-                ><span class="marquee-chip">Django</span
-                ><span class="marquee-chip">NestJS</span
-                ><span class="marquee-chip">FastAPI</span
-                ><span class="marquee-chip">PostgreSQL</span
-                ><span class="marquee-chip">PostGIS</span
-                ><span class="marquee-chip">Docker</span
-                ><span class="marquee-chip">Electron</span
-                ><span class="marquee-chip">Flutter</span
-                ><span class="marquee-chip">Capacitor</span
-                ><span class="marquee-chip">QPay</span
-                ><span class="marquee-chip">Ebarimt</span
-                ><span class="marquee-chip">Ollama</span
-                ><span class="marquee-chip">RAG</span
-                ><span class="marquee-chip">Playwright</span>
-              </div>
-            </div>
-
-            <article class="bento-cell quote-cell">
-              <span class="quote-mark">“</span>
-              <p class="quote-text">
-                Ship it so it survives Monday morning in the countryside with
-                no internet.
-              </p>
-            </article>
-
-            <article class="bento-cell bento-span-2 principle-cell">
-              <span class="cell-label">// principles</span>
-              <ul class="principle-list">
-                <li>Clean architecture over clever hacks</li>
-                <li>Tests are documentation that never lies</li>
-                <li>Mongolian users deserve world-class UX</li>
-                <li>Offline isn't an edge case here — it's Tuesday</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ═══════════════ PROJECTS · WORK BENTO ═══════════════ -->
-      <section class="projects" id="projects">
-        <div class="container">
-          <div class="section-header reveal-block">
-            <h2 class="section-title">Featured <span>Work</span></h2>
-            <p class="section-text">
-              Real systems shipped and maintained — hover any tile to explore.
+        <div class="container about-grid" data-reveal>
+          <img
+            class="about-avatar"
+            src="/assets/images/profile.webp"
+            width="720"
+            height="1081"
+            loading="lazy"
+            alt="Illustrated character of Adiya"
+          />
+          <div>
+            <h2 class="section-title">About <span>me</span></h2>
+            <p class="about-text">
+              I'm a fullstack developer from Ulaanbaatar. I like building
+              software that people depend on every day — and making sure it
+              still works on Monday morning in the countryside with no
+              internet.
             </p>
-          </div>
-
-          <div class="bento-grid work-bento">
-            <!-- Flagship -->
-            <article class="bento-cell work-cell work-cell--flagship">
-              <div class="work-head">
-                <h3 class="work-title">PowerPOS</h3>
-                <span class="pill pill--live"><i></i> LIVE · powerpos.mn</span>
-              </div>
-              <p class="work-desc">
-                Production multi-tenant POS platform serving restaurants and
-                retail across Mongolia. Django + NestJS + Next.js + Electron
-                microservices, QPay payments, Ebarimt e-tax compliance,
-                offline cashier mode, hardware-bound licensing — backed by
-                ~1,500 automated tests and full CI/CD.
-              </p>
-              <div class="chip-row">
-                <span class="chip">Django</span><span class="chip">NestJS</span
-                ><span class="chip">Next.js</span><span class="chip"
-                  >Electron</span
-                ><span class="chip">PostgreSQL</span
-                ><span class="chip">QPay/Ebarimt</span><span class="chip"
-                  >Docker</span
-                >
-              </div>
-              <div class="work-links">
-                <a
-                  href="https://powerpos.mn/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn--primary btn--small"
-                  >Visit Site</a
-                >
-                <a
-                  href="https://github.com/uadiya1012-cyber/PowerPOS-releases"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn--outline btn--small"
-                  >Releases</a
-                >
-              </div>
-            </article>
-
-            <article class="bento-cell work-cell">
-              <div class="work-head">
-                <h3 class="work-title">Тариа &amp; Мал</h3>
-              </div>
-              <p class="work-desc">
-                Offline-first agriculture platform for herders: QR livestock
-                registry, AI disease diagnosis, NDVI pasture monitoring, expert
-                consults. PWA + Capacitor shells, 375 tests.
-              </p>
-              <div class="chip-row">
-                <span class="chip">NestJS</span><span class="chip">PWA</span
-                ><span class="chip">AI Vision</span>
-              </div>
-              <div class="work-links">
-                <a href="/case-studies/taria-mal.html" class="btn btn--outline btn--small">Case study</a>
-                <span class="btn btn--ghost btn--small" title="Code available on request">Private repo</span>
-              </div>
-            </article>
-
-            <article class="bento-cell work-cell">
-              <div class="work-head">
-                <h3 class="work-title">Vega — Local AI Agent</h3>
-              </div>
-              <p class="work-desc">
-                Fully offline bilingual AI assistant: smart Ollama routing,
-                hybrid RAG, permission-gated tools, LoRA fine-tuning pipeline.
-              </p>
-              <div class="chip-row">
-                <span class="chip">Python</span><span class="chip">FastAPI</span
-                ><span class="chip">LoRA</span>
-              </div>
-              <div class="work-links">
-                <a href="/case-studies/vega.html" class="btn btn--outline btn--small">Case study</a>
-                <span class="btn btn--ghost btn--small" title="Code available on request">Private repo</span>
-              </div>
-            </article>
-
-            <article class="bento-cell work-cell">
-              <div class="work-head">
-                <h3 class="work-title">AutoHub</h3>
-              </div>
-              <p class="work-desc">
-                Roadside car-repair marketplace: weighted mechanic dispatch,
-                WebSocket live tracking, PostGIS geo queries, booking state
-                machine.
-              </p>
-              <div class="chip-row">
-                <span class="chip">FastAPI</span><span class="chip">PostGIS</span
-                ><span class="chip">WebSocket</span>
-              </div>
-              <div class="work-links">
-                <a href="/case-studies/autohub.html" class="btn btn--outline btn--small">Case study</a>
-                <span class="btn btn--ghost btn--small" title="Code available on request">Private repo</span>
-              </div>
-            </article>
-
-            <article class="bento-cell work-cell">
-              <div class="work-head">
-                <h3 class="work-title">News Portal</h3>
-              </div>
-              <p class="work-desc">
-                Security-hardened news CMS: TOTP 2FA, Argon2, rate limiting,
-                RBAC, audit logs, S3 image pipeline.
-              </p>
-              <div class="chip-row">
-                <span class="chip">Next.js</span><span class="chip">Auth.js</span
-                ><span class="chip">Prisma</span>
-              </div>
-              <div class="work-links">
-                <span class="btn btn--ghost btn--small" title="Code available on request">Private repo</span>
-              </div>
-            </article>
-
-            <article class="bento-cell work-cell">
-              <div class="work-head">
-                <h3 class="work-title">Bukh-Uya HR</h3>
-              </div>
-              <p class="work-desc">
-                Company management system: employees, timesheets, payroll,
-                leave — JWT auth, audit history, Three.js touches. Public site
-                live at bukhuya.mn; the HR modules are not publicly hosted.
-              </p>
-              <div class="chip-row">
-                <span class="chip">Django</span><span class="chip">React</span
-                ><span class="chip">Three.js</span>
-              </div>
-              <div class="work-links">
-                <a
-                  href="https://bukhuya.mn/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn--primary btn--small"
-                  >Visit Site</a
-                >
-                <span class="btn btn--ghost btn--small" title="Code available on request">Private repo</span>
-              </div>
-            </article>
-
-            <article class="bento-cell work-cell">
-              <div class="work-head">
-                <h3 class="work-title">Expense Tracker</h3>
-              </div>
-              <p class="work-desc">
-                Capstone finance app: budgets, dashboards, receipt uploads,
-                role-based access + Flutter client. Live on Render + Neon —
-                free tier, so the first load can take 30–50 s; sign-in
-                required (demo account on request).
-              </p>
-              <div class="chip-row">
-                <span class="chip">DRF</span><span class="chip">Flutter</span
-                ><span class="chip">Render</span>
-              </div>
-              <div class="work-links">
-                <a
-                  href="https://capstone-expense-tracker-c9g1.onrender.com/accounts/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn--primary btn--small"
-                  title="Free Render instance sleeps when idle — first load can take 30–50 s"
-                  >Live App</a
-                >
-                <a
-                  href="https://github.com/uadiya1012-cyber/capstone_project"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn--outline btn--small"
-                  >GitHub</a
-                >
-              </div>
-            </article>
-
-            <a
-              class="bento-cell work-cell work-cell--more"
-              href="https://github.com/uadiya1012-cyber"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="more-arrow">↗</span>
-              <h3 class="work-title">More experiments</h3>
-              <p class="work-desc">Explore everything on GitHub →</p>
-            </a>
+            <ul class="about-principles">
+              <li>Tests are documentation that never lies.</li>
+              <li>Mongolian users deserve world-class UX.</li>
+              <li>Offline isn't an edge case here — it's Tuesday.</li>
+            </ul>
+            <button id="open-cv-btn" class="btn btn--outline">View resume</button>
           </div>
         </div>
       </section>
 
-      <!-- ═══════════════ CONTACT · CONTROL DECK ═══════════════ -->
+      <!-- ═══ ХОЛБОГДОХ: нэг төвлөрсөн хэсэг. ═══ -->
       <section class="contact" id="contact">
-        <div class="container">
-          <div class="section-header section-header--light reveal-block">
-            <h2 class="section-title">Let's Build <span>Together</span></h2>
+        <div class="container contact-box" data-reveal>
+          <h2 class="section-title">Let's build <span>something</span></h2>
+          <p>
+            Have a product, a payments integration or an app idea? Write to me
+            — I reply within a day.
+          </p>
+          <div class="contact-actions">
+            <a class="btn btn--primary" href="mailto:uadiya1012@gmail.com">uadiya1012@gmail.com</a>
+            <a class="btn btn--outline" href="tel:+97690550597">+976 9055 0597</a>
           </div>
-
-          <div class="bento-grid contact-bento">
-            <article class="bento-cell bento-span-2 cta-cell">
-              <span class="cell-label">// start a project</span>
-              <h3 class="cta-title">
-                Have an idea that needs to survive reality?
-              </h3>
-              <p class="cta-sub">
-                Product design, full-stack builds, payments integration, or AI
-                features — tell me what you're building.
-              </p>
-              <a
-                href="mailto:uadiya1012@gmail.com"
-                class="btn btn--primary btn--full"
-                >uadiya1012@gmail.com</a
-              >
-              <p class="cta-sub" lang="mn">
-                Монголын жижиг бизнест:
-                <a href="/web/">вэб сайт 3 хоногт, 700,000 ₮-өөс →</a>
-              </p>
-            </article>
-
-            <article class="bento-cell location-cell">
-              <span class="cell-label">// location</span>
-              <strong>Ulaanbaatar, Mongolia</strong>
-              <div id="weather-widget" class="weather-widget"></div>
-            </article>
-
-            <a
-              class="bento-cell social-cell"
-              href="https://github.com/uadiya1012-cyber"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <strong>GitHub</strong>
-              <span class="social-handle">@uadiya1012-cyber ↗</span>
-            </a>
-
-            <a
-              class="bento-cell social-cell"
-              href="https://www.linkedin.com/in/adiyakhuu-uuriintsolmon-b50592232/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <strong>LinkedIn</strong>
-              <span class="social-handle">Adiyakhuu Uuriintsolmon ↗</span>
-            </a>
-
-            <a
-              class="bento-cell social-cell"
-              href="mailto:uadiya1012@gmail.com"
-            >
-              <strong>Gmail</strong>
-              <span class="social-handle">uadiya1012 ↗</span>
-            </a>
-          </div>
+          <p class="contact-links">
+            <a href="https://www.linkedin.com/in/adiyakhuu-uuriintsolmon-b50592232/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/uadiya1012-cyber" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </p>
+          <p class="contact-mn" lang="mn">
+            Монголын жижиг бизнест:
+            <a href="/web/">вэб сайт 3 хоногт, 700,000 ₮-өөс →</a>
+          </p>
         </div>
       </section>
 

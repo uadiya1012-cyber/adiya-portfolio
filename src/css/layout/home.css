@@ -1,0 +1,410 @@
+/* Нүүр хуудас — 2026-11-23-нд хялбаршуулсан.
+   Өмнө нь 27 хайрцагтай bento байсан; одоо 5 хэсэг, хайрцаг цөөн.
+   Зарчим: хэсэг бүрт ганц чухал зүйл томоор, стек ганц удаа, холбоосгүй газарт товчгүй. */
+
+/* ── Нүүр ─────────────────────────────────────────── */
+.intro {
+  padding: 96px 0 64px;
+}
+
+.intro-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #86efac;
+}
+
+.intro-status .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+}
+
+.intro-title {
+  margin-top: 20px;
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.intro-title span {
+  color: var(--primary);
+}
+
+.intro-text {
+  margin-top: 24px;
+  max-width: 600px;
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+.intro-text strong {
+  color: var(--light);
+}
+
+.intro-actions {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.intro-facts {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 48px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.intro-facts strong {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--light);
+}
+
+/* ── Хэсгийн гарчиг ───────────────────────────────── */
+.work .section-title,
+.skills .section-title {
+  margin-bottom: 36px;
+}
+
+/* ── Ажлууд ───────────────────────────────────────── */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 56px 32px;
+}
+
+.project-thumb {
+  display: block;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(99, 102, 241, 0.22), transparent 70%),
+    var(--bg-soft);
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.project-thumb:hover {
+  border-color: rgba(129, 140, 248, 0.45);
+  transform: translateY(-3px);
+}
+
+.project-thumb > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Утасны 2 дэлгэц зэрэгцээ, доод тал нь картын ирмэгээр тайрагдана */
+.project-thumb--phones {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  padding-top: 7%;
+}
+
+.project-thumb--phones > img {
+  width: 30%;
+  height: auto;
+  align-self: flex-start;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+.project-body {
+  padding-top: 20px;
+}
+
+.project-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+}
+
+.tag-live {
+  font-size: 12px;
+  font-weight: 600;
+  color: #86efac;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(134, 239, 172, 0.25);
+}
+
+.project-desc {
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.project-stack {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.project-links {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.project-links a,
+.more-list a,
+.more-github,
+.contact-links a,
+.contact-mn a {
+  color: var(--primary);
+}
+
+.project-links a:hover,
+.more-list a:hover,
+.more-github:hover,
+.contact-links a:hover,
+.contact-mn a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Бусад ажлууд — хайрцаггүй, мөр бүр нэг төсөл */
+.more-work {
+  margin-top: 72px;
+}
+
+.more-work__title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.more-list {
+  list-style: none;
+}
+
+.more-list li {
+  display: grid;
+  grid-template-columns: 170px 1fr auto;
+  gap: 4px 24px;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.more-list strong {
+  color: var(--light);
+}
+
+.more-list span {
+  font-size: 15px;
+}
+
+.more-list .more-links {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.more-github {
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+/* ── Юу хийдэг вэ ─────────────────────────────────── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.skill {
+  padding-top: 20px;
+  border-top: 2px solid rgba(129, 140, 248, 0.35);
+}
+
+.skill h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.skill p {
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.skills-stack {
+  margin-top: 44px;
+  font-size: 15px;
+}
+
+.skills-stack span {
+  margin-right: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Миний тухай ──────────────────────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.about-avatar {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.5));
+}
+
+.about-text {
+  max-width: 640px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.about-principles {
+  margin: 20px 0 28px;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.about-principles li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 15px;
+  color: var(--light);
+}
+
+.about-principles li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+/* ── Холбогдох ────────────────────────────────────── */
+.contact-box {
+  max-width: 720px;
+  text-align: center;
+}
+
+.contact-box p {
+  font-size: 17px;
+  /* Сүүлийн мөрөнд ганц үг үлдэхээс сэргийлнэ */
+  text-wrap: balance;
+}
+
+.contact-actions {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.contact-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  font-weight: 600;
+}
+
+.contact-box .contact-mn {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-size: 15px;
+}
+
+/* ── Жижиг дэлгэц ─────────────────────────────────── */
+@media (max-width: 860px) {
+  .work-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-grid {
+    gap: 48px;
+  }
+
+  .skills-grid {
+    gap: 28px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about-avatar {
+    width: 150px;
+  }
+
+  .more-list li {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro {
+    padding: 48px 0 40px;
+  }
+
+  .intro-text {
+    font-size: 17px;
+  }
+
+  .intro-facts {
+    gap: 16px 28px;
+  }
+}
+
+/* Цэсний холбоосоор үсрэхэд гарчиг наалттай цэсний доор далдлагдахгүй */
+.work,
+.skills,
+.about,
+.contact {
+  scroll-margin-top: 90px;
+}
+
+@media (max-width: 768px) {
+  .work,
+  .skills,
+  .about,
+  .contact {
+    scroll-margin-top: 110px;
+  }
+}

@@ -1,0 +1,17 @@
+/* Технологийн жижиг шошго — case-study хуудсуудад ашиглагддаг.
+   (Өмнө нь bento.css дотор байсан; нүүр хуудас хялбарших үед энд шилжсэн.) */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-300);
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.09);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+}
