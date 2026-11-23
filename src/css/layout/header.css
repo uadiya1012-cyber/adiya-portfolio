@@ -6,7 +6,7 @@
 
   padding: 8px 0;
   /* give a little vertical breathing room */
-  background: rgba(247, 248, 252, 0.88);
+  background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);

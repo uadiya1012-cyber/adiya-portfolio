@@ -35,6 +35,10 @@
 
 .intro-title span {
   color: var(--primary);
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .intro-text {
@@ -87,22 +91,47 @@
   gap: 56px 32px;
 }
 
+.project {
+  --tint: #ede9fe;
+  --accent: var(--primary);
+}
+
+.project--blue {
+  --tint: #dbeafe;
+  --accent: #2563eb;
+}
+
+.project--green {
+  --tint: #d1fae5;
+  --accent: #059669;
+}
+
+.project--orange {
+  --tint: #ffedd5;
+  --accent: #ea580c;
+}
+
+.project--violet {
+  --tint: #ede9fe;
+  --accent: #6d5df6;
+}
+
 .project-thumb {
   display: block;
   aspect-ratio: 16 / 10;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: 1px solid transparent;
   background:
-    radial-gradient(120% 90% at 50% 0%, rgba(99, 102, 241, 0.28), transparent 70%),
-    var(--bg-soft);
+    radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.7), transparent 70%),
+    var(--tint);
   transition:
     border-color 0.25s ease,
     transform 0.25s ease;
 }
 
 .project-thumb:hover {
-  border-color: rgba(79, 70, 229, 0.45);
+  border-color: var(--accent);
   transform: translateY(-3px);
 }
 
@@ -126,8 +155,8 @@
   height: auto;
   align-self: flex-start;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(30, 27, 58, 0.08);
+  box-shadow: 0 18px 36px rgba(30, 27, 58, 0.22);
 }
 
 .project-body {
@@ -171,7 +200,10 @@
   font-weight: 600;
 }
 
-.project-links a,
+.project-links a {
+  color: var(--accent);
+}
+
 .more-list a,
 .more-github,
 .contact-links a,
@@ -245,13 +277,30 @@
 }
 
 .skill {
-  padding-top: 20px;
-  border-top: 2px solid rgba(79, 70, 229, 0.35);
+  padding: 22px;
+  border-radius: 16px;
+  background: var(--tint);
+}
+
+.skill:nth-child(1) {
+  --tint: #ede9fe;
+  --deep: #5b21b6;
+}
+
+.skill:nth-child(2) {
+  --tint: #fce7f3;
+  --deep: #9d174d;
+}
+
+.skill:nth-child(3) {
+  --tint: #fef3c7;
+  --deep: #92400e;
 }
 
 .skill h3 {
   font-size: 18px;
   margin-bottom: 10px;
+  color: var(--deep);
 }
 
 .skill p {
