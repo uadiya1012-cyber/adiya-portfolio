@@ -54,7 +54,10 @@
   color: var(--primary);
 }
 
-.offer-contact .btn {
+.offer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-top: 16px;
 }
 
@@ -62,4 +65,9 @@
   .case .offer-packages {
     grid-template-columns: 1fr;
   }
+}
+
+/* Үнийн картуудын доорх «Залгах» — утсан дээр дээд талын «Холбогдох» товч нуугддаг тул. */
+.offer-actions--prices {
+  margin: -28px 0 48px;
 }
