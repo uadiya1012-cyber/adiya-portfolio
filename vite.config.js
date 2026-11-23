@@ -19,8 +19,6 @@ export default {
         tariaMal: resolve(import.meta.dirname, "case-studies/taria-mal.html"),
         // Монгол хэлтэй «Вэб сайт хийлгэх» үйлчилгээний хуудас → /web/
         web: resolve(import.meta.dirname, "web/index.html"),
-        // Жишээ сайт (зохиомол кафе) — /web/-ээс холбогдоно, noindex, sitemap-д ороогүй
-        cafe: resolve(import.meta.dirname, "demo/cafe/index.html"),
       },
     },
   },

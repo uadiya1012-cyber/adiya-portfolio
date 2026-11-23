@@ -18,8 +18,7 @@ export default {
   "p1.dd": `<strong class="offer-price">700,000 ₮</strong>
               <span class="offer-meta">2–3 days</span>
               Introduction, services and prices, photos, address and opening
-              hours, call and Messenger buttons.
-              <a class="offer-demo" href="/demo/cafe/">See an example →</a>`,
+              hours, call and Messenger buttons.`,
   "p2.dt": "Business site",
   "p2.dd": `<strong class="offer-price">1,500,000 ₮</strong>
               <span class="offer-meta">4–6 pages · 5–7 days</span>
@@ -83,10 +82,6 @@ export default {
   "ex.p": `<a href="https://bukhuya.mn/" target="_blank" rel="noopener noreferrer">bukhuya.mn ↗</a>
             — website for Bukh-Uya LLC (roof waterproofing). A call button on
             the home page; on phones it always stays in the bottom corner.`,
-  "ex.p2": `<a href="/demo/cafe/">“Ayaga &amp; Boov” café — example site →</a>
-            — a made-up café built to show what the One page package looks like: menu
-            and prices, photos, address, opening hours, call and Messenger buttons. It even
-            shows whether the café is open right now. (The example is in Mongolian.)`,
   "ex.cap1": "On a computer",
   "ex.cap2": "On a phone",
 
