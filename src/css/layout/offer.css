@@ -90,3 +90,64 @@
     width: 60%;
   }
 }
+
+/* Жил бүрийн зардлын хүснэгт */
+.offer-costs {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.offer-costs th,
+.offer-costs td {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.offer-costs th {
+  width: 45%;
+  padding-right: 16px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.offer-costs th b {
+  color: var(--light);
+}
+
+.offer-costs td {
+  font-weight: 600;
+  color: var(--light);
+}
+
+.offer-costs td small {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.offer-costs__total th,
+.offer-costs__total td {
+  border-bottom: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.case-section .offer-note {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* #zardal, #holbogdoh холбоосоор үсрэхэд гарчиг наалттай цэсний доор далдлагдахгүй */
+.case-section[id] {
+  scroll-margin-top: 110px;
+}
+
+@media (max-width: 768px) {
+  .case-section[id] {
+    scroll-margin-top: 180px;
+  }
+}

@@ -1,0 +1,43 @@
+/* EN / МН сэлгүүр — нүүр ба /web/ хуудасны цэсэнд. */
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.lang-toggle button {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.lang-toggle button:hover {
+  color: var(--light);
+}
+
+.lang-toggle button[aria-pressed="true"] {
+  background: var(--primary);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .nav__actions {
+    order: 2;
+  }
+}

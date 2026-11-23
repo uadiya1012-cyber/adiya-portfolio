@@ -60,30 +60,36 @@
       <nav class="nav container">
         <a href="/" class="nav__logo">UADIYA</a>
         <ul class="nav__menu">
-          <li><a href="/#projects" class="nav__link">← Портфолио</a></li>
+          <li><a href="/#projects" class="nav__link" data-i18n="nav.back">← Портфолио</a></li>
         </ul>
-        <a href="#holbogdoh" class="btn btn--primary">Холбогдох</a>
+        <div class="nav__actions">
+          <div class="lang-toggle" role="group" aria-label="Хэл / Language">
+            <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+            <button type="button" data-lang-btn="mn" aria-pressed="true">МН</button>
+          </div>
+          <a href="#holbogdoh" class="btn btn--primary" data-i18n="nav.cta">Холбогдох</a>
+        </div>
       </nav>
     </header>
 
     <main>
       <article class="case container">
-        <p class="case-kicker">Жижиг бизнест · Вэб сайт</p>
-        <h1 class="case-title">
+        <p class="case-kicker" data-i18n="kicker">Жижиг бизнест · Вэб сайт</p>
+        <h1 class="case-title" data-i18n="title">
           Вэб сайт — 3 хоногт бэлэн
           <span>Утсанд тохирсон, Google-д олдохоор тохируулсан, үйлчлүүлэгч тань нэг товчоор залгадаг сайт</span>
         </h1>
-        <p class="case-lead">
+        <p class="case-lead" data-i18n="lead">
           Танайд Facebook хуудас байгаа ч вэб сайт байхгүй бол хүмүүс Google-ээр
           хайхад танайг олохгүй байж магадгүй. Би жижиг бизнест нэг хуудастай
           эсвэл хэдэн хуудастай сайтыг богино хугацаанд хийж өгдөг.
         </p>
-        <p class="offer-badge">Эхлэлийн үнэ — эхний 3 захиалагчид</p>
+        <p class="offer-badge" data-i18n="badge">Эхлэлийн үнэ — эхний 3 захиалагчид</p>
 
         <dl class="case-facts offer-packages">
           <div class="case-fact offer-main">
-            <dt>Нэг хуудас</dt>
-            <dd>
+            <dt data-i18n="p1.dt">Нэг хуудас</dt>
+            <dd data-i18n="p1.dd">
               <strong class="offer-price">700,000 ₮</strong>
               <span class="offer-meta">2–3 хоног</span>
               Танилцуулга, үйлчилгээ ба үнэ, зураг, хаяг ба цагийн хуваарь,
@@ -91,8 +97,8 @@
             </dd>
           </div>
           <div class="case-fact">
-            <dt>Танилцуулга сайт</dt>
-            <dd>
+            <dt data-i18n="p2.dt">Танилцуулга сайт</dt>
+            <dd data-i18n="p2.dd">
               <strong class="offer-price">1,500,000 ₮</strong>
               <span class="offer-meta">4–6 хуудас · 5–7 хоног</span>
               Нүүр, Бидний тухай, Үйлчилгээ, Зураг / Төсөл, Холбоо барих,
@@ -100,8 +106,8 @@
             </dd>
           </div>
           <div class="case-fact">
-            <dt>Сарын засвар</dt>
-            <dd>
+            <dt data-i18n="p3.dt">Сарын засвар</dt>
+            <dd data-i18n="p3.dd">
               <strong class="offer-price">100,000 ₮ <small>/ сар</small></strong>
               <span class="offer-meta">сард 2 цаг хүртэл</span>
               Үнэ, зураг, бичвэр солих, шинэ мэдээ нэмэх, жижиг засвар. Хүссэн
@@ -109,8 +115,8 @@
             </dd>
           </div>
           <div class="case-fact">
-            <dt>Англи хувилбар</dt>
-            <dd>
+            <dt data-i18n="p4.dt">Англи хувилбар</dt>
+            <dd data-i18n="p4.dd">
               <strong class="offer-price">+200,000 ₮</strong>
               <span class="offer-meta">+1–2 хоног</span>
               Нэг хуудас эсвэл танилцуулга сайтад нэмэлтээр. Гадаад
@@ -119,12 +125,12 @@
           </div>
         </dl>
         <div class="offer-actions offer-actions--prices">
-          <a class="btn btn--primary" href="tel:+97690550597">Залгах: 9055 0597</a>
+          <a class="btn btn--primary" href="tel:+97690550597" data-i18n="call">Залгах: 9055 0597</a>
         </div>
 
         <section class="case-section">
-          <h2>Бүх багцад <span>орно</span></h2>
-          <ul>
+          <h2 data-i18n="inc.h">Бүх багцад <span>орно</span></h2>
+          <ul data-i18n="inc.list">
             <li>Утас, компьютер аль алинд нь зөв харагдана.</li>
             <li>Хурдан ачаална.</li>
             <li>Google-д олдохоор тохируулна (гарчиг, тайлбар, сайтын зураглал).</li>
@@ -133,8 +139,8 @@
         </section>
 
         <section class="case-section">
-          <h2>Хэрхэн <span>ажиллах вэ</span></h2>
-          <ol class="offer-steps">
+          <h2 data-i18n="steps.h">Хэрхэн <span>ажиллах вэ</span></h2>
+          <ol class="offer-steps" data-i18n="steps.list">
             <li><strong>Ярилцлага, 30 минут.</strong> Юу зардаг, хэнд зардаг, сайтаас хүмүүс юу хийгээсэй гэж хүсдэг вэ (залгах, бичих, хаягаар ирэх).</li>
             <li><strong>Бүтэц ба бичвэр.</strong> Хуудасны бүтэц, бичвэрийн ноорог бэлдэнэ. Та батална.</li>
             <li><strong>Сайт.</strong> Дизайн ба код. Утсаараа нээж үзэх холбоос илгээнэ.</li>
@@ -143,17 +149,56 @@
         </section>
 
         <section class="case-section">
-          <h2>Та өгөх <span>зүйл</span></h2>
-          <p>
+          <h2 data-i18n="give.h">Та өгөх <span>зүйл</span></h2>
+          <p data-i18n="give.p">
             Лого, зураг, танилцуулга бичвэр. Бичвэр байхгүй бол би ноорог бичээд
             та засна. Домэйн нэр (жишээ нь танайнэр.mn) ба хостингийг танай нэр
             дээр авна, алхам бүрийг нь зааж өгнө.
           </p>
         </section>
 
+        <!-- Захиалагчийн тогтмол зардал. Үнэ: Датакомын үнийн жагсаалт (datacom.mn/pricing,
+             НӨАТ орсон) ба Cloudflare Registrar-ийн .com үнэ, 2026-11-23-нд шалгасан.
+             Үнэ өөрчлөгдвөл энэ хэсэг ба src/i18n/web.en.js-ийн cost.* түлхүүрүүдийг хамт засна. -->
+        <section class="case-section" id="zardal">
+          <h2 data-i18n="cost.h">Жил бүрийн <span>зардал</span></h2>
+          <p data-i18n="cost.p">
+            Сайт бэлэн болсны дараа танд жил бүр зөвхөн домэйн нэрийн төлбөр
+            гарна. Үүнийг танай нэр дээр, бүртгэгчид нь шууд төлнө.
+          </p>
+          <div data-i18n="cost.table">
+            <table class="offer-costs">
+              <tbody>
+                <tr>
+                  <th>Домэйн нэр <b>.mn</b></th>
+                  <td>165,000 ₮ / жил</td>
+                </tr>
+                <tr>
+                  <th>эсвэл домэйн нэр <b>.com</b></th>
+                  <td>~40,000 ₮ / жил <small>($11 орчим)</small></td>
+                </tr>
+                <tr>
+                  <th>Хостинг (сайт байрлах сервер)</th>
+                  <td>0 ₮ <small>— жижиг сайтад үнэгүй хостинг хангалттай, HTTPS (цоож тэмдэг) ч үнэгүй</small></td>
+                </tr>
+                <tr class="offer-costs__total">
+                  <th>Нийт</th>
+                  <td>жилд 40,000 – 165,000 ₮</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="offer-note" data-i18n="cost.note">
+            Заавал биш: info@танайнэр.mn гэх мэт бизнес имэйл нэг хаяг 52,800 ₮ / жил,
+            Монголд байрлах төлбөртэй хостинг 198,000 ₮ / жил. Үнэ 2026 оны 11-р
+            сарын байдлаар: .mn, имэйл, хостинг нь Датакомын үнийн жагсаалтаас (НӨАТ
+            орсон), .com нь Cloudflare-ийн үнэ.
+          </p>
+        </section>
+
         <section class="case-section">
-          <h2><span>Төлбөр</span></h2>
-          <p>
+          <h2 data-i18n="pay.h"><span>Төлбөр</span></h2>
+          <p data-i18n="pay.p">
             Гэрээ байгуулахад 50%, бэлэн сайтыг хүлээлгэн өгөхөд 50%. Онлайн
             төлбөр (QPay), нэвтрэлт, захиалгын систем, админ самбар энэ үнэд
             орохгүй. Хэрэгтэй бол тусад нь үнэлнэ. Ийм системүүдийг ч хийж
@@ -162,8 +207,8 @@
         </section>
 
         <section class="case-section">
-          <h2>Жишээ <span>ажил</span></h2>
-          <p>
+          <h2 data-i18n="ex.h">Жишээ <span>ажил</span></h2>
+          <p data-i18n="ex.p">
             <a href="https://bukhuya.mn/" target="_blank" rel="noopener noreferrer">bukhuya.mn ↗</a>
             — Бөх Уяа ХХК-ийн сайт (барилгын дээврийн ус тусгаарлалт). Нүүрэндээ
             «Залгах» товчтой, утсан дээр товч нь үргэлж доод буланд харагдана.
@@ -177,7 +222,7 @@
                 loading="lazy"
                 alt="bukhuya.mn компьютер дээр: «Барилгын дээврийн ус тусгаарлалт» гарчиг, үйлчилгээний ба залгах товч"
               />
-              <figcaption>Компьютер дээр</figcaption>
+              <figcaption data-i18n="ex.cap1">Компьютер дээр</figcaption>
             </figure>
             <figure class="case-shot">
               <img
@@ -187,19 +232,19 @@
                 loading="lazy"
                 alt="bukhuya.mn утсан дээр: гарчиг, үйлчилгээний товч ба утасны дугаартай товч"
               />
-              <figcaption>Утсан дээр</figcaption>
+              <figcaption data-i18n="ex.cap2">Утсан дээр</figcaption>
             </figure>
           </div>
         </section>
 
         <section class="case-section offer-contact" id="holbogdoh">
-          <h2><span>Холбогдох</span></h2>
-          <p>
+          <h2 data-i18n="contact.h"><span>Холбогдох</span></h2>
+          <p data-i18n="contact.p">
             Залгаад эсвэл танай бизнесийн тухай хоёр өгүүлбэр бичээд явуулаарай.
             24 цагийн дотор хариулна.
           </p>
           <div class="offer-actions">
-            <a class="btn btn--primary" href="tel:+97690550597">Залгах: 9055 0597</a>
+            <a class="btn btn--primary" href="tel:+97690550597" data-i18n="call">Залгах: 9055 0597</a>
             <a
               class="btn btn--outline"
               href="mailto:uadiya1012@gmail.com?subject=%D0%92%D1%8D%D0%B1%20%D1%81%D0%B0%D0%B9%D1%82%20%D1%85%D0%B8%D0%B9%D0%BB%D0%B3%D1%8D%D1%85"
@@ -209,5 +254,7 @@
         </section>
       </article>
     </main>
+
+    <script type="module" src="/src/web.js"></script>
   </body>
 </html>

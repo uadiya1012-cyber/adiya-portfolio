@@ -32,13 +32,19 @@
         <a href="#home" class="nav__logo">UADIYA</a>
 
         <ul class="nav__menu">
-          <li><a href="#projects" class="nav__link">Work</a></li>
-          <li><a href="#about" class="nav__link">About</a></li>
-          <li><a href="#contact" class="nav__link">Contact</a></li>
-          <li><a href="/web/" class="nav__link" lang="mn">Вэб сайт хийлгэх</a></li>
+          <li><a href="#projects" class="nav__link" data-i18n="nav.work">Work</a></li>
+          <li><a href="#about" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="/web/" class="nav__link" data-i18n="nav.web">Get a website</a></li>
         </ul>
 
-        <a href="#contact" class="btn btn--primary">Get in touch</a>
+        <div class="nav__actions">
+          <div class="lang-toggle" role="group" aria-label="Language / Хэл">
+            <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+            <button type="button" data-lang-btn="mn" aria-pressed="false">МН</button>
+          </div>
+          <a href="#contact" class="btn btn--primary" data-i18n="nav.cta">Get in touch</a>
+        </div>
       </nav>
     </header>
 
@@ -46,28 +52,28 @@
       <!-- ═══ НҮҮР: нэр, нэг өгүүлбэр, 2 товч, 3 баримт. Хайрцаггүй. ═══ -->
       <section class="intro" id="home">
         <div class="container">
-          <p class="intro-status"><span class="dot"></span> Open to work · Ulaanbaatar</p>
+          <p class="intro-status"><span class="dot"></span> <span data-i18n="intro.status">Open to work · Ulaanbaatar</span></p>
 
-          <h1 class="intro-title">
+          <h1 class="intro-title" data-i18n="intro.title">
             Adiya builds <span>systems</span><br />
             that run live.
           </h1>
 
-          <p class="intro-text">
+          <p class="intro-text" data-i18n="intro.text">
             Fullstack developer. I build and run <strong>PowerPOS</strong>, a
             point-of-sale system used by shops and restaurants across
             Mongolia — and apps that keep working without internet.
           </p>
 
           <div class="intro-actions">
-            <a href="#projects" class="btn btn--primary">See my work</a>
-            <a href="#contact" class="btn btn--outline">Get in touch</a>
+            <a href="#projects" class="btn btn--primary" data-i18n="intro.see">See my work</a>
+            <a href="#contact" class="btn btn--outline" data-i18n="nav.cta">Get in touch</a>
           </div>
 
           <ul class="intro-facts">
-            <li><strong>7</strong> shipped projects</li>
-            <li><strong>2,000+</strong> automated tests</li>
-            <li><strong>Live</strong> at powerpos.mn</li>
+            <li data-i18n="fact.1"><strong>7</strong> shipped projects</li>
+            <li data-i18n="fact.2"><strong>2,000+</strong> automated tests</li>
+            <li data-i18n="fact.3"><strong>Live</strong> at powerpos.mn</li>
           </ul>
         </div>
       </section>
@@ -76,7 +82,7 @@
            Холбоос байхгүй газарт товч тавихгүй («Private repo» хассан). ═══ -->
       <section class="work" id="projects">
         <div class="container">
-          <h2 class="section-title" data-reveal>Selected <span>work</span></h2>
+          <h2 class="section-title" data-reveal data-i18n="work.title">Selected <span>work</span></h2>
 
           <div class="work-grid">
             <article class="project" data-reveal>
@@ -90,15 +96,15 @@
                 />
               </a>
               <div class="project-body">
-                <h3 class="project-title">PowerPOS <span class="tag-live">Live</span></h3>
-                <p class="project-desc">
+                <h3 class="project-title">PowerPOS <span class="tag-live" data-i18n="tag.live">Live</span></h3>
+                <p class="project-desc" data-i18n="pp.desc">
                   Point-of-sale system for shops and restaurants across
                   Mongolia: a Windows cashier app that keeps selling offline,
                   QPay payments, Ebarimt e-receipts and an owner dashboard.
                   Backed by ~1,500 automated tests.
                 </p>
                 <p class="project-stack">Django · NestJS · Next.js · Electron · PostgreSQL</p>
-                <p class="project-links">
+                <p class="project-links" data-i18n="pp.links">
                   <a href="https://powerpos.mn/" target="_blank" rel="noopener noreferrer">Visit powerpos.mn ↗</a>
                   <a href="https://github.com/uadiya1012-cyber/PowerPOS-releases" target="_blank" rel="noopener noreferrer">App releases ↗</a>
                 </p>
@@ -112,13 +118,13 @@
               </a>
               <div class="project-body">
                 <h3 class="project-title">Тариа &amp; Мал</h3>
-                <p class="project-desc">
+                <p class="project-desc" data-i18n="taria.desc">
                   App for herders that works without internet: livestock
                   registry with QR ear tags, disease check from a photo, and
                   pasture maps from satellite data.
                 </p>
                 <p class="project-stack">NestJS · React · PWA · Capacitor</p>
-                <p class="project-links">
+                <p class="project-links" data-i18n="taria.links">
                   <a href="/case-studies/taria-mal.html">Read the case study →</a>
                 </p>
               </div>
@@ -131,12 +137,12 @@
               </a>
               <div class="project-body">
                 <h3 class="project-title">AutoHub</h3>
-                <p class="project-desc">
+                <p class="project-desc" data-i18n="autohub.desc">
                   Roadside car-repair app: finds the nearest available mechanic
                   and shows them arriving live on the map.
                 </p>
                 <p class="project-stack">FastAPI · PostGIS · WebSocket</p>
-                <p class="project-links">
+                <p class="project-links" data-i18n="autohub.links">
                   <a href="/case-studies/autohub.html">Read the case study →</a>
                 </p>
               </div>
@@ -153,14 +159,14 @@
                 />
               </a>
               <div class="project-body">
-                <h3 class="project-title">Vega — local AI assistant</h3>
-                <p class="project-desc">
+                <h3 class="project-title" data-i18n="vega.title">Vega — local AI assistant</h3>
+                <p class="project-desc" data-i18n="vega.desc">
                   Personal AI assistant that runs fully on my laptop — no
                   cloud, Mongolian and English, and it asks before using any
                   tool.
                 </p>
                 <p class="project-stack">Python · FastAPI · Ollama</p>
-                <p class="project-links">
+                <p class="project-links" data-i18n="vega.links">
                   <a href="/case-studies/vega.html">Read the case study →</a>
                 </p>
               </div>
@@ -168,33 +174,33 @@
           </div>
 
           <div class="more-work" data-reveal>
-            <h3 class="more-work__title">Also built</h3>
+            <h3 class="more-work__title" data-i18n="more.title">Also built</h3>
             <ul class="more-list">
               <li>
                 <strong>Bukh-Uya</strong>
-                <span>Company website and internal HR system: staff, timesheets, payroll.</span>
+                <span data-i18n="bukh.desc">Company website and internal HR system: staff, timesheets, payroll.</span>
                 <span class="more-links"><a href="https://bukhuya.mn/" target="_blank" rel="noopener noreferrer">bukhuya.mn ↗</a></span>
               </li>
               <li>
-                <strong>News portal</strong>
-                <span>News site with a hardened editor login: two-factor auth, roles, audit log.</span>
+                <strong data-i18n="news.title">News portal</strong>
+                <span data-i18n="news.desc">News site with a hardened editor login: two-factor auth, roles, audit log.</span>
               </li>
               <li>
-                <strong>Expense tracker</strong>
-                <span>Budgeting app with dashboards and a Flutter mobile client.</span>
+                <strong data-i18n="exp.title">Expense tracker</strong>
+                <span data-i18n="exp.desc">Budgeting app with dashboards and a Flutter mobile client.</span>
                 <span class="more-links">
                   <a
                     href="https://capstone-expense-tracker-c9g1.onrender.com/accounts/"
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Free Render instance sleeps when idle — first load can take 30–50 s"
-                    >Live app ↗</a
+                     data-i18n="exp.live">Live app ↗</a
                   >
-                  <a href="https://github.com/uadiya1012-cyber/capstone_project" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                  <a href="https://github.com/uadiya1012-cyber/capstone_project" target="_blank" rel="noopener noreferrer" data-i18n="exp.code">Code ↗</a>
                 </span>
               </li>
             </ul>
-            <a class="more-github" href="https://github.com/uadiya1012-cyber" target="_blank" rel="noopener noreferrer">More on GitHub ↗</a>
+            <a class="more-github" href="https://github.com/uadiya1012-cyber" target="_blank" rel="noopener noreferrer" data-i18n="more.github">More on GitHub ↗</a>
           </div>
         </div>
       </section>
@@ -202,34 +208,34 @@
       <!-- ═══ ЮУ ХИЙДЭГ ВЭ: 3 мөр. Стекийг энд ганц удаа л харуулна. ═══ -->
       <section class="skills" id="services">
         <div class="container">
-          <h2 class="section-title" data-reveal>What I <span>do</span></h2>
+          <h2 class="section-title" data-reveal data-i18n="skills.title">What I <span>do</span></h2>
 
           <div class="skills-grid">
             <div class="skill" data-reveal>
-              <h3>Web &amp; mobile apps</h3>
-              <p>
+              <h3 data-i18n="s1.h">Web &amp; mobile apps</h3>
+              <p data-i18n="s1.p">
                 The whole product, from database to screen: React and Next.js
                 in front, Django, NestJS or FastAPI behind, Flutter and
                 Electron for apps.
               </p>
             </div>
             <div class="skill" data-reveal>
-              <h3>Payments &amp; Mongolian tax</h3>
-              <p>
+              <h3 data-i18n="s2.h">Payments &amp; Mongolian tax</h3>
+              <p data-i18n="s2.p">
                 QPay payments and Ebarimt e-receipts, tested against the tax
                 authority's sandbox and running in production.
               </p>
             </div>
             <div class="skill" data-reveal>
-              <h3>Offline-first &amp; AI</h3>
-              <p>
+              <h3 data-i18n="s3.h">Offline-first &amp; AI</h3>
+              <p data-i18n="s3.p">
                 Apps that keep working when the internet drops, and AI features
                 that run locally — no data leaves the machine.
               </p>
             </div>
           </div>
 
-          <p class="skills-stack" data-reveal>
+          <p class="skills-stack" data-reveal data-i18n="skills.stack">
             <span>Tools</span> TypeScript · Python · React · Next.js · Django ·
             NestJS · FastAPI · PostgreSQL · Docker · Flutter · Electron
           </p>
@@ -249,19 +255,19 @@
             alt="Illustrated character of Adiya"
           />
           <div>
-            <h2 class="section-title">About <span>me</span></h2>
-            <p class="about-text">
+            <h2 class="section-title" data-i18n="about.title">About <span>me</span></h2>
+            <p class="about-text" data-i18n="about.text">
               I'm a fullstack developer from Ulaanbaatar. I like building
               software that people depend on every day — and making sure it
               still works on Monday morning in the countryside with no
               internet.
             </p>
-            <ul class="about-principles">
+            <ul class="about-principles" data-i18n="about.list">
               <li>Tests are documentation that never lies.</li>
               <li>Mongolian users deserve world-class UX.</li>
               <li>Offline isn't an edge case here — it's Tuesday.</li>
             </ul>
-            <button id="open-cv-btn" class="btn btn--outline">View resume</button>
+            <button id="open-cv-btn" class="btn btn--outline" data-i18n="about.cv">View resume</button>
           </div>
         </div>
       </section>
@@ -269,8 +275,8 @@
       <!-- ═══ ХОЛБОГДОХ: нэг төвлөрсөн хэсэг. ═══ -->
       <section class="contact" id="contact">
         <div class="container contact-box" data-reveal>
-          <h2 class="section-title">Let's build <span>something</span></h2>
-          <p>
+          <h2 class="section-title" data-i18n="contact.title">Let's build <span>something</span></h2>
+          <p data-i18n="contact.text">
             Have a product, a payments integration or an app idea? Write to me
             — I reply within a day.
           </p>
@@ -282,9 +288,9 @@
             <a href="https://www.linkedin.com/in/adiyakhuu-uuriintsolmon-b50592232/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
             <a href="https://github.com/uadiya1012-cyber" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           </p>
-          <p class="contact-mn" lang="mn">
-            Монголын жижиг бизнест:
-            <a href="/web/">вэб сайт 3 хоногт, 700,000 ₮-өөс →</a>
+          <p class="contact-mn" data-i18n="contact.web">
+            Small business in Mongolia?
+            <a href="/web/">A website in 3 days, from 700,000 ₮ →</a>
           </p>
         </div>
       </section>
@@ -465,7 +471,7 @@
       <div class="footer__container container">
         <div class="footer__content">
           <div class="footer__logo">UADIYA</div>
-          <p class="footer__copyright">© 2026 Adiya. All rights reserved.</p>
+          <p class="footer__copyright" data-i18n="footer.copy">© 2026 Adiya. All rights reserved.</p>
           <div class="footer__socials">
             <a
               href="https://www.linkedin.com/in/adiyakhuu-uuriintsolmon-b50592232/"

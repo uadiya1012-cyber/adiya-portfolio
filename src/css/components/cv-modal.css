@@ -27,7 +27,7 @@
 }
 
 .cv-modal {
-  background: rgba(15, 15, 20, 0.85); /* Darker glass for contrast */
+  background: rgba(24, 28, 39, 0.9); /* Darker glass for contrast */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
@@ -68,7 +68,7 @@
   align-items: flex-start;
   position: sticky;
   top: 0;
-  background: rgba(15, 15, 20, 0.95);
+  background: rgba(24, 28, 39, 0.97);
   backdrop-filter: blur(10px);
   z-index: 10;
 }

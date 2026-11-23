@@ -1,19 +1,19 @@
 :root {
-    /* Palette — calm dark, single indigo accent */
-    --bg: #0f1115;
-    --bg-soft: #14171e;
-    --surface: rgba(255, 255, 255, 0.04);
-    --border: rgba(255, 255, 255, 0.08);
+    /* Palette — зөөлөн бараан (2026-11-23-нд гэгээлэг болгосон), ганц индиго өнгө */
+    --bg: #181c27;
+    --bg-soft: #212636;
+    --surface: rgba(255, 255, 255, 0.055);
+    --border: rgba(255, 255, 255, 0.11);
 
-    --primary: #818cf8;
+    --primary: #8f99fb;
     --primary-strong: #6366f1;
 
     /* Text */
     --white: #ffffff;
     --light: #e6e8ef;
-    --text: #aab0bf;
-    --muted: #7c8290;
-    --gray-300: #c3c8d4;
+    --text: #bdc3d1;
+    --muted: #9097a8;
+    --gray-300: #d0d5df;
 
     /* Legacy aliases (kept so existing rules keep working) */
     --dark: #f1f3f9;          /* headings on dark bg */

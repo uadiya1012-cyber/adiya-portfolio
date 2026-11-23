@@ -5,10 +5,10 @@ body {
   /* Тайван, хөдөлгөөнгүй градиент — дээд талдаа бүдэг индиго гэрэлтэлт */
   background-image: radial-gradient(
       ellipse 90% 55% at 50% -10%,
-      rgba(99, 102, 241, 0.1),
+      rgba(129, 140, 248, 0.16),
       transparent
     ),
-    linear-gradient(180deg, #0f1115 0%, #0c0e12 100%);
+    linear-gradient(180deg, #1b2030 0%, #161a24 100%);
   background-attachment: fixed;
   overflow-x: clip;
 }

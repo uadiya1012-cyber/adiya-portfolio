@@ -1,6 +1,9 @@
 import { initCVModal } from "./cv.js";
+import { initI18n } from "./i18n.js";
+import mn from "./i18n/home.mn.js";
 
 initCVModal();
+initI18n({ base: "en", strings: mn });
 
 /* Хэсгүүд дэлгэцэнд орохдоо зөөлөн гарч ирнэ (data-reveal).
    «Хөдөлгөөн багасгах» тохиргоотой эсвэл JS ажиллахгүй үед бүх зүйл шууд харагдана. */
