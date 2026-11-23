@@ -17,6 +17,8 @@ export default {
         autohub: resolve(import.meta.dirname, "case-studies/autohub.html"),
         vega: resolve(import.meta.dirname, "case-studies/vega.html"),
         tariaMal: resolve(import.meta.dirname, "case-studies/taria-mal.html"),
+        // Монгол хэлтэй «Вэб сайт хийлгэх» үйлчилгээний хуудас → /web/
+        web: resolve(import.meta.dirname, "web/index.html"),
       },
     },
   },

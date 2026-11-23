@@ -1,0 +1,65 @@
+/* «Вэб сайт хийлгэх» хуудас (/web/) — case-study.css-ийн дээр нэмэгдэх цөөн загвар.
+   Build хийхэд энэ файл case-study.css-ээс ӨМНӨ ачаалагддаг тул түүний дүрмийг дарах
+   газарт `.case` угтвар нэмж specificity-г өсгөсөн (дарааллаас үл хамаарна). */
+
+.offer-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  margin-bottom: 28px;
+  border-radius: 999px;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.case .offer-packages .case-fact dd {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.case .offer-main {
+  border-color: var(--primary);
+}
+
+.offer-price {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.offer-price small {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.offer-meta {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.case-section ol.offer-steps {
+  padding-left: 20px;
+}
+
+.offer-steps li strong {
+  color: var(--light);
+}
+
+.case-section a:not(.btn) {
+  color: var(--primary);
+}
+
+.offer-contact .btn {
+  margin-top: 16px;
+}
+
+@media (max-width: 640px) {
+  .case .offer-packages {
+    grid-template-columns: 1fr;
+  }
+}
