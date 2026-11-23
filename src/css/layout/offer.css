@@ -71,3 +71,22 @@
 .offer-actions--prices {
   margin: -28px 0 48px;
 }
+
+/* Жишээ ажлын зураг: компьютерынх өргөн, утасных нарийн — нэг мөрөнд. */
+.offer-shots {
+  display: grid;
+  grid-template-columns: 2.6fr 1fr;
+  gap: 14px;
+  align-items: start;
+  margin-top: 16px;
+}
+
+@media (max-width: 640px) {
+  .offer-shots {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-shots .case-shot:last-child {
+    width: 60%;
+  }
+}

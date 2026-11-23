@@ -8,6 +8,47 @@
       name="description"
       content="Жижиг бизнест зориулсан, утсанд тохирсон, Google-д олдохоор тохируулсан вэб сайт. Нэг хуудас 700,000 ₮-өөс, 3 хоногт бэлэн."
     />
+    <link rel="canonical" href="https://athena-fullstack-adiya-d2f8e.web.app/web/" />
+    <!-- Холбоос хуваалцахад гарах карт (Messenger, Facebook). Үнийг зөвхөн og:title-д бичнэ —
+         зураг дээр үнэ байхгүй тул үнэ өөрчлөгдөхөд зургийг дахин гаргах шаардлагагүй. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="mn_MN" />
+    <meta property="og:url" content="https://athena-fullstack-adiya-d2f8e.web.app/web/" />
+    <meta property="og:title" content="Вэб сайт — 3 хоногт бэлэн · 700,000 ₮-өөс" />
+    <meta
+      property="og:description"
+      content="Жижиг бизнест: утсанд тохирсон, Google-д олдохоор тохируулсан, нэг товчоор залгадаг сайт."
+    />
+    <meta property="og:image" content="https://athena-fullstack-adiya-d2f8e.web.app/assets/images/og/web.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Вэб сайт — 3 хоногт бэлэн. Жишээ: bukhuya.mn компьютер ба утсан дээр" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Google-д үйлчилгээний мэдээлэл (schema.org). Үнэ өөрчлөгдвөл доорх offers-ийг ч засна. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Вэб сайт хийлгэх",
+        "serviceType": "Вэб сайт хөгжүүлэлт",
+        "description": "Жижиг бизнест зориулсан, утсанд тохирсон, Google-д олдохоор тохируулсан вэб сайт.",
+        "url": "https://athena-fullstack-adiya-d2f8e.web.app/web/",
+        "areaServed": { "@type": "Country", "name": "Mongolia" },
+        "availableLanguage": ["mn", "en"],
+        "provider": {
+          "@type": "Person",
+          "name": "Adiya",
+          "url": "https://athena-fullstack-adiya-d2f8e.web.app/",
+          "telephone": "+97690550597",
+          "email": "uadiya1012@gmail.com"
+        },
+        "offers": [
+          { "@type": "Offer", "name": "Нэг хуудас", "price": "700000", "priceCurrency": "MNT" },
+          { "@type": "Offer", "name": "Танилцуулга сайт", "price": "1500000", "priceCurrency": "MNT" },
+          { "@type": "Offer", "name": "Сарын засвар", "price": "100000", "priceCurrency": "MNT" }
+        ]
+      }
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/src/css/style.css" />
     <link rel="stylesheet" href="/src/css/layout/case-study.css" />
@@ -124,8 +165,31 @@
           <h2>Жишээ <span>ажил</span></h2>
           <p>
             <a href="https://bukhuya.mn/" target="_blank" rel="noopener noreferrer">bukhuya.mn ↗</a>
-            — байгууллагын танилцуулга сайт.
+            — Бөх Уяа ХХК-ийн сайт (барилгын дээврийн ус тусгаарлалт). Нүүрэндээ
+            «Залгах» товчтой, утсан дээр товч нь үргэлж доод буланд харагдана.
           </p>
+          <div class="offer-shots">
+            <figure class="case-shot">
+              <img
+                src="/assets/images/case/bukhuya-desktop.webp"
+                width="1280"
+                height="800"
+                loading="lazy"
+                alt="bukhuya.mn компьютер дээр: «Барилгын дээврийн ус тусгаарлалт» гарчиг, үйлчилгээний ба залгах товч"
+              />
+              <figcaption>Компьютер дээр</figcaption>
+            </figure>
+            <figure class="case-shot">
+              <img
+                src="/assets/images/case/bukhuya-mobile.webp"
+                width="500"
+                height="780"
+                loading="lazy"
+                alt="bukhuya.mn утсан дээр: гарчиг, үйлчилгээний товч ба утасны дугаартай товч"
+              />
+              <figcaption>Утсан дээр</figcaption>
+            </figure>
+          </div>
         </section>
 
         <section class="case-section offer-contact" id="holbogdoh">

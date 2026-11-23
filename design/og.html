@@ -1,0 +1,69 @@
+<!doctype html>
+<!--
+  Холбоос хуваалцахад гарах зураг (Open Graph, 1200×630) — build-д ордоггүй, гараар гаргана:
+    ?v=web  → public/assets/images/og/web.png   (/web/ хуудас)
+    ?v=home → public/assets/images/og/home.png  (нүүр хуудас)
+  Гаргах команд: design/og.sh. Зураг дээр ҮНЭ ТАВИХГҮЙ — үнэ өөрчлөгдөхөд зургийг дахин гаргах
+  шаардлагагүйн тулд үнийг зөвхөн og:title-д бичнэ.
+-->
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: #e6e8ef;
+    background:
+      radial-gradient(900px 500px at 85% -10%, rgba(99, 102, 241, 0.35), transparent 60%),
+      radial-gradient(700px 400px at -10% 110%, rgba(129, 140, 248, 0.18), transparent 60%),
+      #0b0d12;
+    display: grid;
+    grid-template-columns: 1fr 470px;
+    gap: 40px;
+    padding: 64px 64px 56px 72px;
+  }
+  body.home { grid-template-columns: 1fr; }
+  body.home h1 { font-size: 92px; margin-top: 30px; }
+  body.home .sub { font-size: 32px; margin-top: 30px; }
+  .text { display: flex; flex-direction: column; }
+  .kicker { color: #818cf8; font-size: 22px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  h1 { margin-top: 22px; font-size: 70px; line-height: 1.05; font-weight: 800; color: #fff; letter-spacing: -1.5px; }
+  h1 span { color: #818cf8; }
+  .sub { margin-top: 24px; font-size: 27px; line-height: 1.45; color: #aab0bf; font-weight: 500; }
+  .brand { margin-top: auto; font-size: 24px; font-weight: 800; letter-spacing: 0.08em; color: #fff; }
+  .brand small { margin-left: 14px; font-size: 20px; font-weight: 500; letter-spacing: 0; color: #7c8290; }
+  .shot { align-self: center; position: relative; height: 420px; }
+  .shot img { position: absolute; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+  .shot .desk { width: 430px; top: 0; right: 40px; }
+  .shot .phone { width: 150px; bottom: 0; right: 0; border-radius: 18px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+  <div class="text">
+    <p class="kicker" data-v="web">Жижиг бизнест</p>
+    <h1 data-v="web">Вэб сайт —<br><span>3 хоногт</span> бэлэн</h1>
+    <p class="sub" data-v="web">Утсанд тохирсон, Google-д олдохоор тохируулсан, нэг товчоор залгадаг сайт.</p>
+
+    <p class="kicker" data-v="home" lang="en">Full-stack developer · Ulaanbaatar</p>
+    <h1 data-v="home" lang="en">Adiya builds<br><span>systems</span> that run live.</h1>
+    <p class="sub" data-v="home" lang="en">POS platforms, payments, offline-first apps<br>and local AI agents — built and shipped.</p>
+
+    <p class="brand">UADIYA <small data-v="web">Ulaanbaatar</small></p>
+  </div>
+  <div class="shot" data-v="web">
+    <img class="desk" src="../public/assets/images/case/bukhuya-desktop.webp" alt="">
+    <img class="phone" src="../public/assets/images/case/bukhuya-mobile.webp" alt="">
+  </div>
+  <script>
+    const v = new URLSearchParams(location.search).get("v") || "web";
+    document.body.classList.add(v);
+    for (const el of document.querySelectorAll("[data-v]")) el.hidden = el.dataset.v !== v;
+  </script>
+</body>
+</html>

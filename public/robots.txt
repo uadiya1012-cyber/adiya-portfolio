@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://athena-fullstack-adiya-d2f8e.web.app/sitemap.xml
