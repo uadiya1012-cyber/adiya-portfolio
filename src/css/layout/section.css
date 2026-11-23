@@ -16,7 +16,7 @@ section {
 }
 
 .section-header--light {
-    color: white;
+    color: var(--heading);
 }
 
 .section-title {

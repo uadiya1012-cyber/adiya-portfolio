@@ -1,22 +1,27 @@
 :root {
-    /* Palette — зөөлөн бараан (2026-11-23-нд гэгээлэг болгосон), ганц индиго өнгө */
-    --bg: #181c27;
-    --bg-soft: #212636;
-    --surface: rgba(255, 255, 255, 0.055);
-    --border: rgba(255, 255, 255, 0.11);
+    /* Палитр — цайвар загвар (2026-11-23-нд бараанаас шилжсэн), ганц индиго өнгө.
+       Өнгийг энд л өөрчилнө; бусад CSS эдгээр хувьсагчаас авна. */
+    --bg: #f5f6fa;            /* хуудасны фон */
+    --surface: #ffffff;       /* карт, хүснэгт */
+    --surface-2: rgba(15, 23, 42, 0.04); /* бүдэг дэвсгэр (код, шошго) */
+    --border: rgba(15, 23, 42, 0.1);
+    --thumb-bg: #1f2433;      /* ажлын зургийн бараан хүрээ — апп-ын дэлгэц тод харагдана */
 
-    --primary: #8f99fb;
-    --primary-strong: #6366f1;
+    --primary: #4f46e5;
+    --primary-strong: #4338ca;
+    --ok: #15803d;            /* «Ажиллаж байна», «Open to work» */
 
-    /* Text */
-    --white: #ffffff;
-    --light: #e6e8ef;
-    --text: #bdc3d1;
-    --muted: #9097a8;
-    --gray-300: #d0d5df;
+    /* Бичвэр */
+    --heading: #121826;       /* гарчиг, үнэ, тод тоо */
+    --light: #1f2937;         /* онцлох бичвэр (strong) */
+    --text: #475066;          /* энгийн бичвэр */
+    --muted: #6b7280;         /* туслах бичвэр */
+    --gray-300: #3f4656;      /* шошго, кодын бичвэр */
+    --white: #ffffff;         /* өнгөт товч дээрх бичвэр */
 
-    /* Legacy aliases (kept so existing rules keep working) */
-    --dark: #f1f3f9;          /* headings on dark bg */
+    /* Хуучин нэрс (одоо байгаа дүрмүүд ажилласаар байхын тулд) */
+    --dark: var(--heading);
+    --bg-soft: var(--thumb-bg);
     --primary-color: var(--primary);
     --text-color: var(--text);
 
