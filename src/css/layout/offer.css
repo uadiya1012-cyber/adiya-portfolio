@@ -151,3 +151,20 @@
     scroll-margin-top: 180px;
   }
 }
+
+/* «Нэг хуудас» картын «Жишээ үзэх →» ба хоёр дахь жишээ (кафе) */
+.case .offer-demo {
+  display: block;
+  margin-top: 8px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.case .offer-demo:hover {
+  text-decoration: underline;
+}
+
+.case .offer-ex2 {
+  margin-top: 36px;
+}
