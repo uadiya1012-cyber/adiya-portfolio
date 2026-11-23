@@ -82,6 +82,14 @@ export default {
   "ex.p": `<a href="https://bukhuya.mn/" target="_blank" rel="noopener noreferrer">bukhuya.mn ↗</a>
             — website for Bukh-Uya LLC (roof waterproofing). A call button on
             the home page; on phones it always stays in the bottom corner.`,
+  "ex.ochirt": `<a href="https://ochirt-med-hospital.web.app/" target="_blank" rel="noopener noreferrer">Ochirt Med ↗</a>
+            — one-page website for a traditional medicine clinic. Patients book an appointment
+            right on the site, and staff hear an alert when a new booking comes in.`,
+  "ex.stepperoad": `<strong>Stepperoad</strong> — website for Steppe Road LLC. Mongolian and English,
+            12 pages: about, leadership, projects, news, gallery, investors and contact.`,
+  "ex.baglaa": `<strong>Baglaa</strong> — ordering site for flower shops (demo version). Customers
+            pick a shop, build a bouquet stem by stem, pay with QPay and choose delivery or pickup.
+            Online ordering and payment systems like this are quoted separately.`,
   "ex.cap1": "On a computer",
   "ex.cap2": "On a phone",
 

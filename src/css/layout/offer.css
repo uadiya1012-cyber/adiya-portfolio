@@ -151,3 +151,8 @@
     scroll-margin-top: 180px;
   }
 }
+
+/* «Жишээ ажил» — дараагийн жишээ бүрийн өмнөх зай */
+.case .offer-ex {
+  margin-top: 40px;
+}
