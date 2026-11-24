@@ -76,7 +76,7 @@ export default {
   "cost.note": "Optional: a business email such as info@yourname.mn costs 52,800 ₮ / year per address; paid hosting located in Mongolia costs 198,000 ₮ / year. Prices as of November 2026: .mn, email and hosting from Datacom's price list (VAT included), .com from Cloudflare.",
 
   "pay.h": "<span>Payment</span>",
-  "pay.p": 'Half when we sign, half on handover. Online payments (QPay), logins, booking systems and admin panels are not included — I quote those separately. I have built such systems too; see examples in my <a href="/#projects">portfolio</a>.',
+  "pay.p": 'Half when we sign, half on handover. Online payments (QPay), user logins, booking systems and admin panels are not included — I quote those separately. I have built such systems too: see Ochirt Med and Baglaa below, and more in my <a href="/#projects">portfolio</a>.',
 
   "ex.h": "Example <span>work</span>",
   "ex.p": `<a href="https://bukhuya.mn/" target="_blank" rel="noopener noreferrer">bukhuya.mn ↗</a>
@@ -85,7 +85,7 @@ export default {
   "ex.ochirt": `<a href="https://ochirt-med-hospital.web.app/" target="_blank" rel="noopener noreferrer">Ochirt Med ↗</a>
             — one-page website for a traditional medicine clinic. Patients book an appointment
             right on the site, and staff hear an alert when a new booking comes in.`,
-  "ex.stepperoad": `<strong>Stepperoad</strong> — website for Steppe Road LLC. Mongolian and English,
+  "ex.stepperoad": `<strong>Stepperoad</strong> — website for Tal Nutgiin Khugjliin Zam LLC (Steppe Road). Mongolian and English,
             12 pages: about, leadership, projects, news, gallery, investors and contact.`,
   "ex.baglaa": `<strong>Baglaa</strong> — ordering site for flower shops (demo version). Customers
             pick a shop, build a bouquet stem by stem, pay with QPay and choose delivery or pickup.

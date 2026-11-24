@@ -188,3 +188,25 @@
   font-size: 0.9rem;
   margin: 5px 0 10px 0;
 }
+
+/* Нэрийн доорх хот, имэйл, утас */
+.cv-header-info .cv-contact {
+  margin-top: 6px;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.cv-contact a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.cv-contact a:hover {
+  text-decoration: underline;
+}
+
+/* .glass-panel-ийн 32px дотор зайг хасна: үгүй бол наалддаг толгой хэсгийн дээгүүр
+   доорх бичвэр харагддаг. Зайг .cv-header ба .cv-body өөрсдөө өгдөг. */
+.cv-modal.glass-panel {
+  padding: 0;
+}

@@ -303,11 +303,16 @@
           aria-modal="true"
           aria-labelledby="cv-title"
         >
-          <!-- CV Header -->
+          <!-- CV Header. Монгол орчуулга: src/i18n/home.mn.js-ийн cv.* түлхүүрүүд -->
           <div class="cv-header">
             <div class="cv-header-info">
               <h2 id="cv-title">Adiya</h2>
-              <p>Fullstack Developer</p>
+              <p data-i18n="cv.role">Fullstack Developer</p>
+              <p class="cv-contact">
+                <span data-i18n="cv.city">Ulaanbaatar, Mongolia</span> ·
+                <a href="mailto:uadiya1012@gmail.com">uadiya1012@gmail.com</a> ·
+                <a href="tel:+97690550597">+976 9055 0597</a>
+              </p>
             </div>
             <button
               id="close-cv-btn"
@@ -320,143 +325,120 @@
 
           <!-- CV Body -->
           <div class="cv-body">
-            <!-- Summary -->
             <div class="cv-section">
-              <h3 class="cv-section-title"><span>#</span> Summary</h3>
-              <p class="cv-text">
-                Fullstack Developer based in Ulaanbaatar, Mongolia, building
-                production-grade systems used by real businesses. Experience
-                spans microservice architecture, payments and tax compliance,
-                offline-first mobile platforms, and local AI agents — with a
-                strong testing culture (2,000+ automated tests across projects)
-                and deep Mongolian localization expertise.
+              <h3 class="cv-section-title" data-i18n="cv.summary.h"><span>#</span> Summary</h3>
+              <p class="cv-text" data-i18n="cv.summary">
+                Fullstack developer in Ulaanbaatar, Mongolia, building production systems for
+                real businesses: a live POS platform with QPay payments and Ebarimt e-receipts,
+                offline-first mobile apps, local AI agents, and websites for small businesses.
+                Strong testing culture (2,000+ automated tests across projects) and deep
+                Mongolian localization experience.
               </p>
             </div>
 
-            <!-- Skills -->
             <div class="cv-section">
-              <h3 class="cv-section-title"><span>#</span> Core Skills</h3>
+              <h3 class="cv-section-title" data-i18n="cv.skills.h"><span>#</span> Core Skills</h3>
               <div class="cv-skills-grid">
                 <span class="cv-skill-tag">TypeScript / JavaScript</span>
                 <span class="cv-skill-tag">Python 3</span>
                 <span class="cv-skill-tag">React</span>
                 <span class="cv-skill-tag">Next.js</span>
+                <span class="cv-skill-tag">Tailwind CSS</span>
                 <span class="cv-skill-tag">Django / DRF</span>
                 <span class="cv-skill-tag">NestJS</span>
                 <span class="cv-skill-tag">FastAPI</span>
                 <span class="cv-skill-tag">PostgreSQL / PostGIS</span>
                 <span class="cv-skill-tag">Prisma / TypeORM</span>
+                <span class="cv-skill-tag">Firebase / Firestore</span>
                 <span class="cv-skill-tag">Electron</span>
                 <span class="cv-skill-tag">Flutter</span>
                 <span class="cv-skill-tag">Capacitor / Expo</span>
                 <span class="cv-skill-tag">Docker / Nginx</span>
                 <span class="cv-skill-tag">GitHub Actions CI/CD</span>
-                <span class="cv-skill-tag">QPay / Ebarimt Integration</span>
+                <span class="cv-skill-tag">QPay / Ebarimt</span>
                 <span class="cv-skill-tag">AI / LLM (Ollama, RAG)</span>
                 <span class="cv-skill-tag">WebSocket / PWA</span>
                 <span class="cv-skill-tag">pytest / Vitest / Playwright</span>
               </div>
             </div>
 
-            <!-- Experience & Projects -->
             <div class="cv-section">
-              <h3 class="cv-section-title">
+              <h3 class="cv-section-title" data-i18n="cv.work.h">
                 <span>#</span> Featured Work &amp; Experience
               </h3>
 
               <div class="cv-timeline">
                 <div class="cv-timeline-item">
-                  <div class="cv-timeline-title">
-                    Fullstack Developer — PowerPOS (Поверзон ХХК)
-                  </div>
-                  <div class="cv-timeline-subtitle">
-                    Production multi-tenant POS platform | powerpos.mn
-                  </div>
-                  <p class="cv-text">
-                    Building and operating a live POS platform for restaurants
-                    and retail: Django + NestJS + Next.js + Electron
-                    microservices, QPay payments, Ebarimt e-tax compliance with
-                    Mongolia's tax authority ITC, hardware-bound Ed25519
-                    licensing, offline cashier mode with thermal printing, and
-                    ~1,500+ automated tests with full CI/CD.
+                  <div class="cv-timeline-title" data-i18n="cv.w1.t">Fullstack Developer — PowerPOS (Поверзон ХХК)</div>
+                  <div class="cv-timeline-subtitle" data-i18n="cv.w1.s">Production multi-tenant POS platform | powerpos.mn</div>
+                  <p class="cv-text" data-i18n="cv.w1.p">
+                    Building and operating a live POS platform for restaurants and retail:
+                    Django + NestJS + Next.js + Electron microservices, QPay payments, Ebarimt
+                    e-receipt compliance with Mongolia's tax system, hardware-bound Ed25519
+                    licensing, an offline cashier mode with receipt printing, and about 1,500
+                    automated tests with full CI/CD.
                   </p>
                 </div>
-
                 <div class="cv-timeline-item">
-                  <div class="cv-timeline-title">
-                    Creator — Тариа &amp; Мал Agriculture Platform
-                  </div>
-                  <div class="cv-timeline-subtitle">
-                    Offline-first PWA + native apps | NestJS, React, Capacitor
-                  </div>
-                  <p class="cv-text">
-                    Designed an offline-first platform for herders: livestock
-                    registry with QR ear-tags, AI disease diagnosis from photos,
-                    satellite pasture monitoring (NDVI), market prices, and
-                    expert consultations — 375 tests and GitHub Actions CI
-                    building APKs.
+                  <div class="cv-timeline-title" data-i18n="cv.w2.t">Freelance — Websites for Businesses</div>
+                  <div class="cv-timeline-subtitle" data-i18n="cv.w2.s">bukhuya.mn · Ochirt Med · Stepperoad · Baglaa</div>
+                  <p class="cv-text" data-i18n="cv.w2.p">
+                    Websites built to be found on Google and to turn visitors into calls and
+                    orders: a company site with an internal HR system (staff, timesheets,
+                    payroll), a one-page clinic site with online appointment booking and staff
+                    alerts (Firebase), a bilingual 12-page corporate site (Next.js static
+                    export), and a flower-shop ordering demo with QPay checkout (FastAPI).
                   </p>
                 </div>
-
                 <div class="cv-timeline-item">
-                  <div class="cv-timeline-title">
-                    Creator — Vega Local AI Agent &amp; AutoHub
-                  </div>
-                  <div class="cv-timeline-subtitle">
-                    AI / ML engineering | FastAPI, Ollama, PostGIS
-                  </div>
-                  <p class="cv-text">
-                    Built a fully local bilingual AI agent with hybrid RAG, tool
-                    calling, and a LoRA fine-tuning pipeline; plus an on-demand
-                    vehicle-repair marketplace featuring a weighted dispatch
-                    algorithm and WebSocket live tracking.
+                  <div class="cv-timeline-title" data-i18n="cv.w3.t">Creator — Тариа &amp; Мал Agriculture Platform</div>
+                  <div class="cv-timeline-subtitle" data-i18n="cv.w3.s">Offline-first PWA + native apps | NestJS, React, Capacitor</div>
+                  <p class="cv-text" data-i18n="cv.w3.p">
+                    An offline-first platform for herders: livestock registry with QR ear tags,
+                    AI disease diagnosis from photos, satellite pasture monitoring (NDVI), market
+                    prices and expert consultations — 375 tests and GitHub Actions CI that builds
+                    the APKs.
                   </p>
                 </div>
-
                 <div class="cv-timeline-item">
-                  <div class="cv-timeline-title">
-                    Developer — Security-Hardened News Platform
-                  </div>
-                  <div class="cv-timeline-subtitle">
-                    Next.js 16 | Auth.js v5, TOTP 2FA, RBAC
-                  </div>
-                  <p class="cv-text">
-                    Engineered a news CMS with defense-in-depth security: TOTP
-                    two-factor auth, Argon2 hashing, rate limiting, session
-                    revocation, audit logging, and an S3-compatible image
-                    pipeline.
+                  <div class="cv-timeline-title" data-i18n="cv.w4.t">Developer — Vega (local AI agent) &amp; AutoHub (client project)</div>
+                  <div class="cv-timeline-subtitle" data-i18n="cv.w4.s">AI / ML engineering | FastAPI, Ollama, PostGIS</div>
+                  <p class="cv-text" data-i18n="cv.w4.p">
+                    A fully local bilingual AI agent with hybrid RAG, tool calling and a LoRA
+                    fine-tuning pipeline; and, for a client, an on-demand vehicle-repair
+                    marketplace with a weighted dispatch algorithm and live WebSocket tracking.
                   </p>
                 </div>
-
                 <div class="cv-timeline-item">
-                  <div class="cv-timeline-title">
-                    Creator — Expense Tracker Capstone
-                  </div>
-                  <div class="cv-timeline-subtitle">
-                    Django REST Framework + Flutter
-                  </div>
-                  <p class="cv-text">
-                    Personal finance app with budgets, dashboards, receipt
-                    uploads, and role-based access, with a Flutter mobile
-                    client. Deployed on DigitalOcean during the program; now
-                    live on Render + Neon.
+                  <div class="cv-timeline-title" data-i18n="cv.w5.t">Developer — Security-Hardened News Platform</div>
+                  <div class="cv-timeline-subtitle" data-i18n="cv.w5.s">Next.js 16 | Auth.js v5, TOTP 2FA, RBAC</div>
+                  <p class="cv-text" data-i18n="cv.w5.p">
+                    A news CMS with defense-in-depth security: TOTP two-factor auth, Argon2
+                    hashing, rate limiting, session revocation, audit logging and an
+                    S3-compatible image pipeline.
+                  </p>
+                </div>
+                <div class="cv-timeline-item">
+                  <div class="cv-timeline-title" data-i18n="cv.w6.t">Creator — Expense Tracker (capstone project)</div>
+                  <div class="cv-timeline-subtitle" data-i18n="cv.w6.s">Django REST Framework + Flutter</div>
+                  <p class="cv-text" data-i18n="cv.w6.p">
+                    Personal finance app with budgets, dashboards, receipt uploads and role-based
+                    access, plus a Flutter mobile client. Deployed on DigitalOcean during the
+                    program; now running on Render + Neon.
                   </p>
                 </div>
               </div>
             </div>
 
-            <!-- Education -->
             <div class="cv-section">
-              <h3 class="cv-section-title"><span>#</span> Education</h3>
+              <h3 class="cv-section-title" data-i18n="cv.edu.h"><span>#</span> Education</h3>
               <div class="cv-timeline">
                 <div class="cv-timeline-item">
-                  <div class="cv-timeline-title">Athena Fall 2025 Program</div>
-                  <div class="cv-timeline-subtitle">
-                    Software Engineering &amp; Fullstack Development
-                  </div>
-                  <p class="cv-text">
-                    Intensive training covering frontend frameworks, backend
-                    architecture, database design, and cloud deployments.
+                  <div class="cv-timeline-title" data-i18n="cv.e1.t">Athena Fall 2025 Program</div>
+                  <div class="cv-timeline-subtitle" data-i18n="cv.e1.s">Software Engineering &amp; Fullstack Development</div>
+                  <p class="cv-text" data-i18n="cv.e1.p">
+                    Intensive training covering frontend frameworks, backend architecture,
+                    database design and cloud deployment.
                   </p>
                 </div>
               </div>
